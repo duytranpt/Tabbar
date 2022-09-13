@@ -86,5 +86,19 @@ extension UIView {
     }
 }
 
-
+class NavbarHeight {
+    var navbarHeight: CGFloat = {
+        var height: CGFloat = 64
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first
+            let topPadding = window?.safeAreaInsets.top
+            print("topPadding: \(topPadding)")
+            let bottomPadding = window?.safeAreaInsets.bottom
+            if topPadding! > 20 {
+                height += 36
+            }
+        }
+        return height
+    }()
+}
 

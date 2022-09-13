@@ -63,7 +63,7 @@ struct Defaults {
     static func getListIC() -> [item]? {
 
         var userData: [item]
-        if let data = userDefault.data(forKey: userSessionKey) {
+        if let data = userDefault.data(forKey: listIcon) {
             do {
                 let decoder = JSONDecoder()
                 userData = try decoder.decode([item].self, from: data)

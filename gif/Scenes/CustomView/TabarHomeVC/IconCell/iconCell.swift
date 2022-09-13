@@ -8,7 +8,7 @@
 import UIKit
 
 class iconCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var icon: UIImageView!
     var isAnimate: Bool! = true
@@ -16,6 +16,23 @@ class iconCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    func setupUI(value: item, setHightLight: Bool, didExpandTabbar: Bool) {
+        self.title.text = "\(value.title)"
+        if isHighlighted {
+            if didExpandTabbar {
+                if value.iconHightLight != "" {
+                    self.icon.image = UIImage(named: "\(value.iconHightLightNotCircle)")
+                }
+            }
+        } else {
+            if didExpandTabbar {
+                self.icon.image = UIImage(named: "\(value.icon)")
+            } else {
+                self.icon.image = UIImage(named: "\(value.iconNotCircle)")
+            }
+        }
     }
     
     func startAnimate() {
@@ -44,5 +61,5 @@ class iconCell: UICollectionViewCell {
         layer.removeAnimation(forKey: "animate")
         isAnimate = false
     }
-
+    
 }

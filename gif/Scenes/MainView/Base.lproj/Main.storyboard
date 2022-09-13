@@ -28,11 +28,11 @@
                                         <rect key="frame" x="96" y="0.0" width="86" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikh-6Q-4ge" customClass="CustomButton" customModule="gif" customModuleProvider="target">
+                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikh-6Q-4ge" customClass="CustomButton" customModule="gif" customModuleProvider="target">
                                         <rect key="frame" x="192" y="0.0" width="86" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-UO-cUW" customClass="CustomButton" customModule="gif" customModuleProvider="target">
+                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2LV-UO-cUW" customClass="CustomButton" customModule="gif" customModuleProvider="target">
                                         <rect key="frame" x="288" y="0.0" width="86" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -76,14 +76,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="gift-on-the-way"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXW-Dq-BJT">
-                                <rect key="frame" x="87" y="148" width="240" height="364"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="364" id="NRj-Lp-WCe"/>
-                                    <constraint firstAttribute="width" constant="240" id="oXi-C8-cis"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -92,19 +84,15 @@
                             <constraint firstAttribute="trailing" secondItem="WTV-9F-qhb" secondAttribute="trailing" constant="20" id="5Ts-C5-t6i"/>
                             <constraint firstAttribute="bottom" secondItem="wSl-HS-FRL" secondAttribute="bottom" id="76W-qV-3FE"/>
                             <constraint firstItem="wSl-HS-FRL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BYc-WD-Hak"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MXW-Dq-BJT" secondAttribute="trailing" constant="87" id="FKc-6Y-f96"/>
                             <constraint firstItem="WTV-9F-qhb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JKY-4X-u6S"/>
                             <constraint firstItem="Kso-2J-1N8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MmO-an-5Xy"/>
                             <constraint firstItem="nWB-TF-JxK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Pah-Ne-flx"/>
                             <constraint firstItem="Kso-2J-1N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TkA-Vo-4HY"/>
-                            <constraint firstItem="MXW-Dq-BJT" firstAttribute="top" secondItem="Kso-2J-1N8" secondAttribute="bottom" constant="20" id="WqY-1V-QiB"/>
-                            <constraint firstItem="MXW-Dq-BJT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="YWW-Ko-bOK"/>
                             <constraint firstItem="Kso-2J-1N8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YtH-ai-opi"/>
                             <constraint firstItem="wSl-HS-FRL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ai9-tW-Du6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nWB-TF-JxK" secondAttribute="trailing" constant="20" id="fo5-0n-wbF"/>
                             <constraint firstItem="nWB-TF-JxK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p1d-P7-JlC"/>
                             <constraint firstItem="nWB-TF-JxK" firstAttribute="top" secondItem="WTV-9F-qhb" secondAttribute="bottom" constant="20" id="pZQ-8D-Oga"/>
-                            <constraint firstItem="MXW-Dq-BJT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uIm-O8-Hjy"/>
                             <constraint firstItem="WTV-9F-qhb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zoX-YN-J8S"/>
                         </constraints>
                     </view>
@@ -117,7 +105,6 @@
                         <outlet property="ic3" destination="Ikh-6Q-4ge" id="cRR-mI-f1A"/>
                         <outlet property="ic4" destination="2LV-UO-cUW" id="9bH-aB-Vab"/>
                         <outlet property="navBarView" destination="Kso-2J-1N8" id="eUx-rL-hdr"/>
-                        <outlet property="newView" destination="MXW-Dq-BJT" id="OEV-ns-qdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

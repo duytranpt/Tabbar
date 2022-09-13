@@ -17,21 +17,16 @@ struct HomeIcon: Codable {
     let version: Int
 }
 
-struct listIcon: Codable {
-    private enum CodingKeys: String, CodingKey {
-        case Item
-    }
-    let Item: [item]
-}
-
 struct item: Codable {
     private enum CodingKeys: String, CodingKey {
-        case title, icon, iconNotCircle, action
+        case title, icon, iconHightLight, iconNotCircle, iconHightLightNotCircle, action
     }
     
     let title: String
     let icon: String
+    let iconHightLight: String
     let iconNotCircle: String
+    let iconHightLightNotCircle: String
     let action: Int
 }
 

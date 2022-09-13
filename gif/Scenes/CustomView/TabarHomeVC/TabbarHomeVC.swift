@@ -28,7 +28,7 @@ class TabbarHomeVC: UIView {
     var listPlusView: [UIView] = []
     let ScreenSize: CGRect = UIScreen.main.bounds
     var listIcon: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "11", "12", "13", "12", "13"]
-    
+    var HomeItem: HomeIcon!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,11 +45,11 @@ class TabbarHomeVC: UIView {
         contentView.fixInView(self)
         self.addSubview(contentView)
         let ListHomeItem = parseConfig()
-        
         if Defaults.get() == nil || Defaults.get()?.version != ListHomeItem.version {
             createDataFromPlist()
+        } else {
+            ListIcon = Defaults.getListIC() == nil ? Defaults.get()!.ListIcon : Defaults.getListIC() ?? []
         }
-        ListIcon = Defaults.get()!.ListIcon
         if Defaults.getColor() == 0 {
             let colorValue: Int = Defaults.get()!.BgColor
             Defaults.setColor(value: colorValue)
@@ -69,7 +69,7 @@ class TabbarHomeVC: UIView {
     }
     
     func parseConfig() -> HomeIcon {
-        let url = Bundle.main.url(forResource: "HomeItem", withExtension: "plist")!
+        let url = Bundle.main.url(forResource: "NewHome", withExtension: "plist")!
         let data = try! Data(contentsOf: url)
         let decoder = PropertyListDecoder()
         return try! decoder.decode(HomeIcon.self, from: data)
@@ -78,12 +78,9 @@ class TabbarHomeVC: UIView {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.dragInteractionEnabled = true
-        if isSettingView {
-            collectionView.dragDelegate = self
-            collectionView.dropDelegate = self
-        }
-        
+        collectionView.dragInteractionEnabled = false
+        collectionView.dragDelegate = self
+        collectionView.dropDelegate = self
         if ListIcon.count > 16 {
             collectionView.isScrollEnabled = true
         }
@@ -92,29 +89,20 @@ class TabbarHomeVC: UIView {
         
     }
     
+    func setShowCircleIcon() {
+        var indexPath: NSIndexPath
+        for i in 0..<ListIcon.count {
+            indexPath = NSIndexPath(row: i, section: 0)
+            let cell = self.collectionView(collectionView, cellForItemAt: indexPath as IndexPath) as! iconCell
+            cell.setupUI(value: ListIcon[i], setHightLight: false, didExpandTabbar: true)
+        }
+    }
+    
     func closePopup() {
         print("Close popup!!")
-        //        isSettingView = false
         self.popupChooseColor?.removeFromSuperview()
     }
     
-    @IBAction func restore(_ sender: Any) {
-        createDataFromPlist()
-        isSettingView = false
-        showSettingView(isShow: false)
-        showTopView(isShow: true)
-        showTitleView(isShow: true)
-        removePlus()
-    }
-    
-    
-    @IBAction func save(_ sender: Any) {
-        isSettingView = false
-        showSettingView(isShow: false)
-        showTopView(isShow: true)
-        showTitleView(isShow: true)
-        removePlus()
-    }
     
     func showSettingView(isShow: Bool) {
         if isShow {
@@ -160,6 +148,27 @@ class TabbarHomeVC: UIView {
         }
     }
     
+    //MARK: Action
+    @IBAction func restore(_ sender: Any) {
+        createDataFromPlist()
+        isSettingView = false
+        showSettingView(isShow: false)
+        showTopView(isShow: true)
+        showTitleView(isShow: true)
+        removePlus()
+        print("ListIcon: \(ListIcon)")
+        Defaults.set(listIT: ListIcon)
+    }
+    
+    @IBAction func save(_ sender: Any) {
+        collectionView.dragInteractionEnabled = false
+        isSettingView = false
+        showSettingView(isShow: false)
+        showTopView(isShow: true)
+        showTitleView(isShow: true)
+        removePlus()
+        Defaults.set(listIT: ListIcon)
+    }
     
     @IBAction func showChooseColorPopup(_ sender: UIButton) {
         popupChooseColor = ChooseColorView()
@@ -196,11 +205,7 @@ extension TabbarHomeVC: PopupColor {
     }
     
     func changesettingView() {
-        collectionView.dragDelegate = self
-        collectionView.dropDelegate = self
         collectionView.reloadData()
-        
-        //        createDataFromPlist()
         isSettingView = true
         closePopup()
         showSettingView(isShow: true)
@@ -220,18 +225,12 @@ extension TabbarHomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! iconCell
         let title = ListIcon[indexPath.item].title
-        let icon = ListIcon[indexPath.item].iconNotCircle
+        let icon = ListIcon[indexPath.item].icon
         cell.title.text = title
-        
         cell.icon.image = UIImage(named: "\(icon)")
         
         if isSettingView {
-//            if isLongPress {
-//                cell.startAnimate()
-//            } else {
-//                cell.stopAnimate()
-//            }
-            
+            collectionView.dragInteractionEnabled = true
             if self.listCircleView.count < 16 {
                 var circleContainerView: UIView!
                 circleContainerView = UIView(frame: cell.frame)
@@ -294,6 +293,8 @@ extension TabbarHomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
                 
             }
             
+        } else {
+            collectionView.dragInteractionEnabled = false
         }
         
         return cell
@@ -324,28 +325,10 @@ extension TabbarHomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
         print(ListIcon[indexPath.row].title)
     }
     
-    
-    
-    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        if indexPath.row != 0 {
-               let data = ListIcon[indexPath.row] as? iconCell
-               for view in collectionView.subviews {
-                   if view is iconCell {
-                       view.layer.removeAllAnimations()
-                       print("canMoveItemAt")
-                   }
-               }
-               return true
-           }
-           return false
-    }
-    
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let data = ListIcon[sourceIndexPath.row] as? iconCell
- 
         let object = ListIcon.remove(at: sourceIndexPath.item)
         self.ListIcon.insert(object, at: destinationIndexPath.item)
-       
+
     }
     
 }
@@ -405,20 +388,18 @@ extension TabbarHomeVC: UICollectionViewDragDelegate {
         return [UIDragItem]()
 
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-       
+        
         let cell = collectionView.cellForItem(at: indexPath) as! iconCell
-        cell.startAnimate()
         let parameters = UIDragPreviewParameters()
         let poss = CGRect(origin: CGPoint(x: cell.icon.frame.origin.x, y: 0), size: CGSize(width: 48, height: 48))
-        print(poss)
         parameters.visiblePath = UIBezierPath(roundedRect: poss,
                                               cornerRadius: 24)
         parameters.backgroundColor = .clear
         return parameters
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         let cell = collectionView.cellForItem(at: indexPath) as! iconCell
         cell.stopAnimate()
@@ -445,7 +426,7 @@ extension TabbarHomeVC: UICollectionViewDropDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-
+        
         var destinationIndexPath: IndexPath
         if let indexPath = coordinator.destinationIndexPath {
             destinationIndexPath = indexPath
@@ -453,7 +434,7 @@ extension TabbarHomeVC: UICollectionViewDropDelegate {
             let row = collectionView.numberOfItems(inSection: 0)
             destinationIndexPath = IndexPath(item: row - 1, section: 0)
         }
-
+        
         collectionView.cellForItem(at: destinationIndexPath)
         if coordinator.proposal.operation == .move {
             isLongPress = false
@@ -472,7 +453,7 @@ extension TabbarHomeVC: UICollectionViewDropDelegate {
                 if destinationIndexPath.row != 0 {
                     let object = ListIcon.remove(at: sourceIndexPath.item)
                     self.ListIcon.insert(object, at: destinationIndexPath.item)
-                   
+                    
                     collectionView.deleteItems(at: [sourceIndexPath])
                     collectionView.insertItems(at: [destinationIndexPath])
                 }
@@ -480,18 +461,4 @@ extension TabbarHomeVC: UICollectionViewDropDelegate {
             coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
         }
     }
-}
-
-
-extension UIImage {
-  func remove(color: UIColor, tolerance: CGFloat = 4) -> UIImage {
-    let ciColor = CIColor(color: color)
-
-    let maskComponents: [CGFloat] = [ciColor.red, ciColor.green, ciColor.blue].flatMap { value in
-      [(value * 255) - tolerance, (value * 255) + tolerance]
-    }
-
-    guard let masked = cgImage?.copy(maskingColorComponents: maskComponents) else { return self }
-    return UIImage(cgImage: masked)
-  }
 }

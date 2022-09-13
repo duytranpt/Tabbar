@@ -65,12 +65,27 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
         setupGif()
         navBarView.setHeader(title: "Ứng dụng đọc báo điện tử PressReader", subtitle: "", type: .VNAHEADER_ONE_LINE_SIMPLE)
         buttonView.setupButton(animation: "gift-on-the-way", title: "Ví gia đình")
-        newView.backgroundColor = .cgRGBA(rgba: "0 0 0, 0.08")
         ic2.setupButton(animation: "ic1", title: "VNPAY")
         ic3.setupButton(animation: "ic2", title: "Demo")
         ic4.setupButton(animation: "ic1", title: "Test")
+        
+        ic3.ButtonAnimation.addTarget(self, action: #selector(tapbtn), for: .touchUpInside)
+        ic3.ButtonAnimation.tag = 3
+        ic4.ButtonAnimation.addTarget(self, action: #selector(tapbtn), for: .touchUpInside)
+        ic4.ButtonAnimation.tag = 4
     }
     
+    @objc func tapbtn(sender: UIButton) {
+        
+        switch sender.tag {
+        case 3:
+            Defaults.set(listIT: changeColorView.ListIcon)
+        case 4:
+            print("Defaults: \(Defaults.getListIC())")
+        default:
+            break
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -100,6 +115,7 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
         guard let location = touch?.location(in: self.view) else { return }
         if changeColorView.frame.contains(location) {
             print("Tapped outside the view")
+            changeColorView.setShowCircleIcon()
         } else {
             print("Tapped inside the view")
             

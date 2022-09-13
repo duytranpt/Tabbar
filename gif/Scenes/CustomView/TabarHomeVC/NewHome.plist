@@ -6,7 +6,7 @@
         <array>
             <dict>
                 <key>title</key>
-                <string>DC_HOM_tab_home</string>
+                <string>Trang chủ</string>
                 <key>icon</key>
                 <string>icHomeHomeWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -20,7 +20,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_HOM_tab_book_flights</string>
+                <string>Đặt vé</string>
                 <key>icon</key>
                 <string>icHomeBookWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -34,7 +34,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_HOM_tab_lotusmiles</string>
+                <string>Lotusmiles</string>
                 <key>icon</key>
                 <string>icHomeLotusWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -48,7 +48,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_MYB_lbl_check_in</string>
+                <string>Làm thủ tục</string>
                 <key>icon</key>
                 <string>icHomeCheckinWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -62,7 +62,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_MBOK_lbl_my_booking</string>
+                <string>Đặt chỗ của tôi</string>
                 <key>icon</key>
                 <string>icHomeMybookingWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -76,7 +76,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>HOME_lbl_tracking</string>
+                <string>Theo dõi</string>
                 <key>icon</key>
                 <string>icHomeTrackingWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -90,7 +90,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>HOME_lbl_schedule</string>
+                <string>Lịch bay</string>
                 <key>icon</key>
                 <string>icHomeScheduleWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -118,7 +118,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>HOME_lbl_book_hotel</string>
+                <string>Đặt khách sạn</string>
                 <key>icon</key>
                 <string>icHomeHotelWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -132,7 +132,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_MOR_lbl_airport_maps</string>
+                <string>Bản đồ sân bay</string>
                 <key>icon</key>
                 <string>icHomeMapWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -146,7 +146,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_MOR_lbl_notification</string>
+                <string>Thông báo</string>
                 <key>icon</key>
                 <string>icHomeNotifyWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -160,7 +160,7 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>DC_ST_lbl_setting</string>
+                <string>Cài đặt</string>
                 <key>icon</key>
                 <string>icHomeSettingWhiteCircle</string>
                 <key>iconHightLight</key>
@@ -174,17 +174,17 @@
             </dict>
             <dict>
                 <key>title</key>
-                <string>MP_ST_lbl_myprofile</string>
+                <string>My profile</string>
                 <key>available</key>
                 <string>VN</string>
                 <key>icon</key>
-                <string>icHomeMyProfileWhiteCircle</string>
+                <string>icHomeHotelWhiteCircle</string>
                 <key>iconHightLight</key>
-                <string>&quot;&quot;</string>
+                <string>icHomeHotelWhiteCircle</string>
                 <key>iconNotCircle</key>
-                <string>icHomeMyProfileWhiteCircle</string>
+                <string>icHomeHotelWhiteCircle</string>
                 <key>iconHightLightNotCircle</key>
-                <string>&quot;&quot;</string>
+                <string>icHomeHotelWhiteCircle</string>
                 <key>action</key>
                 <integer>12</integer>
             </dict>
@@ -192,6 +192,6 @@
         <key>BgColor</key>
         <integer>1</integer>
         <key>version</key>
-        <integer>4</integer>
+        <integer>5</integer>
     </dict>
 </plist>

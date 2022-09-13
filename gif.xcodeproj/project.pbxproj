@@ -28,7 +28,6 @@
 		3A62FADB28B4DD85000F7FB1 /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62FADA28B4DD85000F7FB1 /* DemoVC.swift */; };
 		3A62FADD28B4DD8D000F7FB1 /* DemoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A62FADC28B4DD8D000F7FB1 /* DemoVC.storyboard */; };
 		3A62FB0E28B5CBA6000F7FB1 /* HomeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62FB0D28B5CBA6000F7FB1 /* HomeIcon.swift */; };
-		3A62FB1128B5DCB2000F7FB1 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62FB1028B5DCB2000F7FB1 /* Demo.swift */; };
 		3A62FB1328B60092000F7FB1 /* NaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62FB1228B60092000F7FB1 /* NaviBar.swift */; };
 		3A62FB1528B600A3000F7FB1 /* NaviBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A62FB1428B600A3000F7FB1 /* NaviBar.xib */; };
 		3A877B3128BE186C0030CCDB /* TabbarHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A877B3028BE186C0030CCDB /* TabbarHomeVC.swift */; };
@@ -70,7 +69,6 @@
 		3A62FADA28B4DD85000F7FB1 /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
 		3A62FADC28B4DD8D000F7FB1 /* DemoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DemoVC.storyboard; sourceTree = "<group>"; };
 		3A62FB0D28B5CBA6000F7FB1 /* HomeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIcon.swift; sourceTree = "<group>"; };
-		3A62FB1028B5DCB2000F7FB1 /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Demo.swift; path = /Users/duytran/SW/gif/gif/Model/Demo.swift; sourceTree = "<absolute>"; };
 		3A62FB1228B60092000F7FB1 /* NaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBar.swift; sourceTree = "<group>"; };
 		3A62FB1428B600A3000F7FB1 /* NaviBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NaviBar.xib; sourceTree = "<group>"; };
 		3A877B3028BE186C0030CCDB /* TabbarHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarHomeVC.swift; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 		3A62FB0C28B5CB9A000F7FB1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A62FB1028B5DCB2000F7FB1 /* Demo.swift */,
 				3A3631DA28C84E0700BADCB7 /* UserDefault.swift */,
 				3A62FB0D28B5CBA6000F7FB1 /* HomeIcon.swift */,
 			);
@@ -479,7 +476,6 @@
 				3A3631DB28C84E0700BADCB7 /* UserDefault.swift in Sources */,
 				3A877B3128BE186C0030CCDB /* TabbarHomeVC.swift in Sources */,
 				3A877B3D28BF69820030CCDB /* Icon.swift in Sources */,
-				3A62FB1128B5DCB2000F7FB1 /* Demo.swift in Sources */,
 				3A62FADB28B4DD85000F7FB1 /* DemoVC.swift in Sources */,
 				3A877B3728BF1E520030CCDB /* iconCell.swift in Sources */,
 				3A55342128BCA2D700051F8C /* Define.swift in Sources */,
@@ -634,7 +630,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VMBR234FH9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/duytran/SW/gif/gif/New Group/Info.plist";
+				INFOPLIST_FILE = "/Users/duytran/Tabbar/gif/New Group/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -664,7 +660,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VMBR234FH9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "/Users/duytran/SW/gif/gif/New Group/Info.plist";
+				INFOPLIST_FILE = "/Users/duytran/Tabbar/gif/New Group/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
