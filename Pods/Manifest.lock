@@ -1,0 +1,24 @@
+PODS:
+  - FittedSheets (2.4.2)
+  - lottie-ios (3.4.2)
+  - RSKImageCropper (4.0.0)
+
+DEPENDENCIES:
+  - FittedSheets
+  - lottie-ios
+  - RSKImageCropper
+
+SPEC REPOS:
+  trunk:
+    - FittedSheets
+    - lottie-ios
+    - RSKImageCropper
+
+SPEC CHECKSUMS:
+  FittedSheets: 661408776eb4ff514a31da75b3600bd7222b2b3d
+  lottie-ios: 6bbc53eef6957e4744a50321507015fba72d8ca6
+  RSKImageCropper: 90dfe482402fb8a40cabd5fea65186d9102cc425
+
+PODFILE CHECKSUM: 7c744794fbaaa20b09e38833846961c50aee0d1c
+
+COCOAPODS: 1.11.3
