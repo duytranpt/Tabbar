@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="gif" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kso-2J-1N8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="128" id="WiE-wY-gHV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSl-HS-FRL" customClass="TabbarHomeVC" customModule="gif" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="646" width="414" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="250" id="X8o-J3-wdt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" systemColor="systemGreenColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" systemColor="systemIndigoColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTV-9F-qhb" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="20" y="148" width="374" height="126"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="dKy-uB-7eg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="119723-3d-skyline-building"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WTV-9F-qhb" firstAttribute="top" secondItem="Kso-2J-1N8" secondAttribute="bottom" constant="20" id="374-Ia-x85"/>
+                            <constraint firstAttribute="trailing" secondItem="WTV-9F-qhb" secondAttribute="trailing" constant="20" id="5Ts-C5-t6i"/>
+                            <constraint firstAttribute="bottom" secondItem="wSl-HS-FRL" secondAttribute="bottom" id="76W-qV-3FE"/>
+                            <constraint firstItem="wSl-HS-FRL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BYc-WD-Hak"/>
+                            <constraint firstItem="WTV-9F-qhb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JKY-4X-u6S"/>
+                            <constraint firstItem="Kso-2J-1N8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MmO-an-5Xy"/>
+                            <constraint firstItem="Kso-2J-1N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TkA-Vo-4HY"/>
+                            <constraint firstItem="Kso-2J-1N8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YtH-ai-opi"/>
+                            <constraint firstItem="wSl-HS-FRL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ai9-tW-Du6"/>
+                            <constraint firstItem="WTV-9F-qhb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zoX-YN-J8S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="WTV-9F-qhb" id="3TA-FJ-n8t"/>
+                        <outlet property="changeColorView" destination="wSl-HS-FRL" id="f5m-I3-ldm"/>
+                        <outlet property="navibarHeight" destination="WiE-wY-gHV" id="MRh-to-LYI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3332" y="29"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="WTV-9F-qhb"/>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
