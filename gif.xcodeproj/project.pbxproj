@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A0D5A2828CF2E5A00C08219 /* NewHome.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0D5A2728CF2E5A00C08219 /* NewHome.plist */; };
+		3A0D5A2A28D17AFA00C08219 /* qrpay.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A0D5A2928D17AFA00C08219 /* qrpay.json */; };
+		3A0D5A2D28D17CE400C08219 /* LoginVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0D5A2C28D17CE400C08219 /* LoginVC.storyboard */; };
+		3A0D5A2F28D17CFB00C08219 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0D5A2E28D17CFB00C08219 /* LoginVC.swift */; };
 		3A15F24228B34329009E472B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A15F24128B34329009E472B /* CustomButton.swift */; };
 		3A15F24428B34334009E472B /* CustomButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A15F24328B34334009E472B /* CustomButton.xib */; };
 		3A15F24728B3694D009E472B /* ic2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A15F24528B3694D009E472B /* ic2.json */; };
@@ -36,6 +39,13 @@
 		3A877B3828BF1E520030CCDB /* iconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A877B3628BF1E520030CCDB /* iconCell.xib */; };
 		3A877B3A28BF647D0030CCDB /* HomeItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A877B3928BF647C0030CCDB /* HomeItem.plist */; };
 		3A877B3D28BF69820030CCDB /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A877B3C28BF69820030CCDB /* Icon.swift */; };
+		3A8CC75828D18CF0005BD468 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CC75728D18CF0005BD468 /* Contacts.swift */; };
+		3A8CC75B28D18DB3005BD468 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CC75A28D18DB3005BD468 /* ContactVC.swift */; };
+		3A8CC75D28D18DBA005BD468 /* ContactVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A8CC75C28D18DBA005BD468 /* ContactVC.storyboard */; };
+		3A8CC76228D1948F005BD468 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8CC76028D1948F005BD468 /* ContactCell.swift */; };
+		3A8CC76328D1948F005BD468 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8CC76128D1948F005BD468 /* ContactCell.xib */; };
+		3A8CC76528D1D4E8005BD468 /* 119723-3d-skyline-building.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A8CC76428D1D4E8005BD468 /* 119723-3d-skyline-building.json */; };
+		3A8CC76728D1D58C005BD468 /* 101468-contact-lottie-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A8CC76628D1D58C005BD468 /* 101468-contact-lottie-animation.json */; };
 		3ADFA28E28B3136C00D5EC6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFA28D28B3136C00D5EC6E /* AppDelegate.swift */; };
 		3ADFA29028B3136C00D5EC6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFA28F28B3136C00D5EC6E /* SceneDelegate.swift */; };
 		3ADFA29228B3136C00D5EC6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADFA29128B3136C00D5EC6E /* ViewController.swift */; };
@@ -43,12 +53,17 @@
 		3ADFA29728B3136E00D5EC6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADFA29628B3136E00D5EC6E /* Assets.xcassets */; };
 		3ADFA29A28B3136E00D5EC6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADFA29828B3136E00D5EC6E /* LaunchScreen.storyboard */; };
 		3ADFA2A628B3183700D5EC6E /* gift-on-the-way.json in Resources */ = {isa = PBXBuildFile; fileRef = 3ADFA2A528B3183700D5EC6E /* gift-on-the-way.json */; };
+		3AEA76E128D30BDE000D8C50 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEA76E028D30BDE000D8C50 /* PopupView.xib */; };
+		3AEA76E328D30BF1000D8C50 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEA76E228D30BF1000D8C50 /* PopupView.swift */; };
 		B383849DF62F8D76BD5B869B /* Pods_gif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B1E295063AF1AACF6229A8 /* Pods_gif.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		075968509E1CDEE015BA2083 /* Pods-gif.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gif.debug.xcconfig"; path = "Target Support Files/Pods-gif/Pods-gif.debug.xcconfig"; sourceTree = "<group>"; };
 		3A0D5A2728CF2E5A00C08219 /* NewHome.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NewHome.plist; sourceTree = "<group>"; };
+		3A0D5A2928D17AFA00C08219 /* qrpay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrpay.json; sourceTree = "<group>"; };
+		3A0D5A2C28D17CE400C08219 /* LoginVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginVC.storyboard; sourceTree = "<group>"; };
+		3A0D5A2E28D17CFB00C08219 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3A15F24128B34329009E472B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3A15F24328B34334009E472B /* CustomButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButton.xib; sourceTree = "<group>"; };
 		3A15F24528B3694D009E472B /* ic2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ic2.json; sourceTree = "<group>"; };
@@ -77,6 +92,13 @@
 		3A877B3628BF1E520030CCDB /* iconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iconCell.xib; sourceTree = "<group>"; };
 		3A877B3928BF647C0030CCDB /* HomeItem.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HomeItem.plist; sourceTree = "<group>"; };
 		3A877B3C28BF69820030CCDB /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		3A8CC75728D18CF0005BD468 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		3A8CC75A28D18DB3005BD468 /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
+		3A8CC75C28D18DBA005BD468 /* ContactVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactVC.storyboard; sourceTree = "<group>"; };
+		3A8CC76028D1948F005BD468 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		3A8CC76128D1948F005BD468 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		3A8CC76428D1D4E8005BD468 /* 119723-3d-skyline-building.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "119723-3d-skyline-building.json"; sourceTree = "<group>"; };
+		3A8CC76628D1D58C005BD468 /* 101468-contact-lottie-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "101468-contact-lottie-animation.json"; sourceTree = "<group>"; };
 		3ADFA28A28B3136C00D5EC6E /* gif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADFA28D28B3136C00D5EC6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADFA28F28B3136C00D5EC6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +108,8 @@
 		3ADFA29928B3136E00D5EC6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ADFA29B28B3136E00D5EC6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ADFA2A528B3183700D5EC6E /* gift-on-the-way.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "gift-on-the-way.json"; sourceTree = "<group>"; };
+		3AEA76E028D30BDE000D8C50 /* PopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
+		3AEA76E228D30BF1000D8C50 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		8630C5843A00CA751C539D60 /* Pods-gif.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gif.release.xcconfig"; path = "Target Support Files/Pods-gif/Pods-gif.release.xcconfig"; sourceTree = "<group>"; };
 		90B1E295063AF1AACF6229A8 /* Pods_gif.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gif.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A0D5A2B28D17CCF00C08219 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				3A0D5A2C28D17CE400C08219 /* LoginVC.storyboard */,
+				3A0D5A2E28D17CFB00C08219 /* LoginVC.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
 		3A15F24028B34311009E472B /* ButtonAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +147,9 @@
 		3A15F24928B36950009E472B /* JsonAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				3A8CC76628D1D58C005BD468 /* 101468-contact-lottie-animation.json */,
+				3A8CC76428D1D4E8005BD468 /* 119723-3d-skyline-building.json */,
+				3A0D5A2928D17AFA00C08219 /* qrpay.json */,
 				3A15F24628B3694D009E472B /* ic1.json */,
 				3A15F24528B3694D009E472B /* ic2.json */,
 				3ADFA2A528B3183700D5EC6E /* gift-on-the-way.json */,
@@ -204,6 +240,7 @@
 		3A55341B28BC7CC200051F8C /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				3AEA76DF28D30BB0000D8C50 /* PopupView */,
 				3A877B2D28BE182D0030CCDB /* TabarHomeVC */,
 				3A15F24028B34311009E472B /* ButtonAnimation */,
 				3A62FAFE28B5BC23000F7FB1 /* NavBar */,
@@ -215,9 +252,11 @@
 		3A62FAD928B4DD55000F7FB1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3A8CC75928D18DA3005BD468 /* ContactVC */,
 				3A55341B28BC7CC200051F8C /* CustomView */,
 				3A3631AE28C5A65500BADCB7 /* MainView */,
 				3A55323C28B6339900051F8C /* NewVC */,
+				3A0D5A2B28D17CCF00C08219 /* LoginVC */,
 				3A55323B28B6339300051F8C /* DemoVC */,
 			);
 			path = Scenes;
@@ -238,6 +277,7 @@
 			children = (
 				3A3631DA28C84E0700BADCB7 /* UserDefault.swift */,
 				3A62FB0D28B5CBA6000F7FB1 /* HomeIcon.swift */,
+				3A8CC75728D18CF0005BD468 /* Contacts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +323,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3A8CC75928D18DA3005BD468 /* ContactVC */ = {
+			isa = PBXGroup;
+			children = (
+				3A8CC75A28D18DB3005BD468 /* ContactVC.swift */,
+				3A8CC76028D1948F005BD468 /* ContactCell.swift */,
+				3A8CC76128D1948F005BD468 /* ContactCell.xib */,
+				3A8CC75C28D18DBA005BD468 /* ContactVC.storyboard */,
+			);
+			path = ContactVC;
+			sourceTree = "<group>";
+		};
 		3ADFA28128B3136C00D5EC6E = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +365,15 @@
 				3A15F24928B36950009E472B /* JsonAnimation */,
 			);
 			path = gif;
+			sourceTree = "<group>";
+		};
+		3AEA76DF28D30BB0000D8C50 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				3AEA76E028D30BDE000D8C50 /* PopupView.xib */,
+				3AEA76E228D30BF1000D8C50 /* PopupView.swift */,
+			);
+			name = PopupView;
 			sourceTree = "<group>";
 		};
 		D356FB0EFD9E6CA5188587F1 /* Pods */ = {
@@ -396,17 +456,24 @@
 				3ADFA2A628B3183700D5EC6E /* gift-on-the-way.json in Resources */,
 				3A55341F28BC7D0300051F8C /* VNAInputView.xib in Resources */,
 				3ADFA29A28B3136E00D5EC6E /* LaunchScreen.storyboard in Resources */,
+				3A0D5A2A28D17AFA00C08219 /* qrpay.json in Resources */,
 				3ADFA29728B3136E00D5EC6E /* Assets.xcassets in Resources */,
 				3A15F24428B34334009E472B /* CustomButton.xib in Resources */,
+				3A8CC76728D1D58C005BD468 /* 101468-contact-lottie-animation.json in Resources */,
 				3A15F24728B3694D009E472B /* ic2.json in Resources */,
+				3AEA76E128D30BDE000D8C50 /* PopupView.xib in Resources */,
 				3A15F24828B3694D009E472B /* ic1.json in Resources */,
+				3A8CC76328D1948F005BD468 /* ContactCell.xib in Resources */,
+				3A8CC76528D1D4E8005BD468 /* 119723-3d-skyline-building.json in Resources */,
 				3A55324128B633C800051F8C /* NewVC.storyboard in Resources */,
+				3A8CC75D28D18DBA005BD468 /* ContactVC.storyboard in Resources */,
 				3A877B3A28BF647D0030CCDB /* HomeItem.plist in Resources */,
 				3A5533F628B8827700051F8C /* ChooseColorView.xib in Resources */,
 				3A0D5A2828CF2E5A00C08219 /* NewHome.plist in Resources */,
 				3A62FADD28B4DD8D000F7FB1 /* DemoVC.storyboard in Resources */,
 				3A62FB1528B600A3000F7FB1 /* NaviBar.xib in Resources */,
 				3ADFA29528B3136C00D5EC6E /* Main.storyboard in Resources */,
+				3A0D5A2D28D17CE400C08219 /* LoginVC.storyboard in Resources */,
 				3A877B3828BF1E520030CCDB /* iconCell.xib in Resources */,
 				3A877B3328BE18980030CCDB /* TabbarHomeVC.xib in Resources */,
 			);
@@ -461,11 +528,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8CC76228D1948F005BD468 /* ContactCell.swift in Sources */,
 				3A15F24228B34329009E472B /* CustomButton.swift in Sources */,
+				3A8CC75B28D18DB3005BD468 /* ContactVC.swift in Sources */,
 				3A3631B128C7272000BADCB7 /* Color+.swift in Sources */,
+				3A0D5A2F28D17CFB00C08219 /* LoginVC.swift in Sources */,
 				3A55324328B72FBE00051F8C /* Gradient.swift in Sources */,
 				3A55341D28BC7CFC00051F8C /* VNAInputView.swift in Sources */,
 				3A3631AC28C5A53E00BADCB7 /* UIView+.swift in Sources */,
+				3AEA76E328D30BF1000D8C50 /* PopupView.swift in Sources */,
+				3A8CC75828D18CF0005BD468 /* Contacts.swift in Sources */,
 				3A62FB0E28B5CBA6000F7FB1 /* HomeIcon.swift in Sources */,
 				3ADFA29228B3136C00D5EC6E /* ViewController.swift in Sources */,
 				3A62FB1328B60092000F7FB1 /* NaviBar.swift in Sources */,
@@ -631,9 +703,12 @@
 				DEVELOPMENT_TEAM = VMBR234FH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/duytran/Tabbar/gif/New Group/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Bật camera";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Dùng danh bạ";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Chọn ảnh";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LoginVC;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -661,9 +736,12 @@
 				DEVELOPMENT_TEAM = VMBR234FH9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "/Users/duytran/Tabbar/gif/New Group/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Bật camera";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Dùng danh bạ";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Chọn ảnh";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LoginVC;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

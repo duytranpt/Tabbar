@@ -14,7 +14,7 @@ class NaviBar: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rightBtn: UIButton!
     @IBOutlet weak var leftBtn: UIButton!
-    let navigationController = UINavigationController()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -23,6 +23,7 @@ class NaviBar: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadNib()
+        
     }
     
     func loadNib() {
@@ -32,7 +33,6 @@ class NaviBar: UIView {
         rightBtn.isHidden = true
         titleLabel.font = .systemFont(ofSize: 15, weight: .bold)
         titleLabel.textAlignment = .center
-//        titleLabel.contentMode = .top
         titleLabel.numberOfLines = 0
         titleLabel.textColor = .white
     }
@@ -69,7 +69,7 @@ class NaviBar: UIView {
     
     @objc func backAction() {
         print("Hể")
-        self.navigationController.popViewController(animated: true)
+        
     }
     
 }
@@ -92,8 +92,15 @@ class NavbarHeight {
         if #available(iOS 13.0, *) {
             let window = UIApplication.shared.windows.first
             let topPadding = window?.safeAreaInsets.top
-            print("topPadding: \(topPadding)")
+            let left = window?.safeAreaInsets.left
+            let right = window?.safeAreaInsets.right
             let bottomPadding = window?.safeAreaInsets.bottom
+            
+            print("topPadding: \(topPadding)")
+            print("left: \(left)")
+            print("right: \(right)")
+            print("bottomPadding: \(bottomPadding)")
+            
             if topPadding! > 20 {
                 height += 36
             }

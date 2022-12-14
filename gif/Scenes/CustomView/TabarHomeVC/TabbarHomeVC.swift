@@ -24,6 +24,7 @@ class TabbarHomeVC: UIView {
     var isSettingView: Bool = false
     var isLongPress: Bool = false
     var ListIcon: [item] = []
+    var ListIconDefault: [item] = []
     var listCircleView: [UIView] = []
     var listPlusView: [UIView] = []
     let ScreenSize: CGRect = UIScreen.main.bounds
@@ -54,7 +55,7 @@ class TabbarHomeVC: UIView {
             let colorValue: Int = Defaults.get()!.BgColor
             Defaults.setColor(value: colorValue)
         }
-        
+        ListIconDefault = ListIcon
         chooseColor(colorType: Defaults.getColor())
         setupCollectionView()
         showSettingView(isShow: false)
@@ -87,6 +88,11 @@ class TabbarHomeVC: UIView {
         collectionView.register(UINib(nibName: "iconCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         collectionView.contentSize = CGSize(width: ScreenSize.width, height: 77)
         
+    }
+    
+    func unchangeIconPossition() {
+        ListIcon = ListIconDefault
+        collectionView.reloadData()
     }
     
     func setShowCircleIcon() {
@@ -167,6 +173,7 @@ class TabbarHomeVC: UIView {
         showTopView(isShow: true)
         showTitleView(isShow: true)
         removePlus()
+        ListIconDefault = ListIcon
         Defaults.set(listIT: ListIcon)
     }
     
@@ -313,7 +320,7 @@ extension TabbarHomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
         return insetSection
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt sectionff: Int) -> CGFloat {
         return 16
     }
     

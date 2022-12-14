@@ -9,7 +9,9 @@ import UIKit
 import Lottie
 import RSKImageCropper
 import FittedSheets
-
+import AVFoundation
+import QRCodeReader
+import SafariServices
 
 
 class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -22,7 +24,7 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
     }
         
     //MARK: Outlet
-    @IBOutlet weak var newView: UIView!
+    @IBOutlet weak var demoLabel: UILabel!
     @IBOutlet weak var changeColorView: TabbarHomeVC!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var buttonView: CustomButton!
@@ -37,13 +39,36 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
     var EXPANDTABBAR: CGFloat!
     var _hTabBar: CGFloat = 0
     var didExpanded: Bool!
+    
+    
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+            
+            // Configure the view controller (optional)
+            $0.showTorchButton        = false
+            $0.showSwitchCameraButton = false
+            $0.showCancelButton       = false
+            $0.showOverlayView        = true
+            $0.rectOfInterest         = CGRect(x: 0.2, y: 0.2, width: 0.6, height: 0.4)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
+    let ScreenSize: CGRect = UIScreen.main.bounds
+    var backgroundView: UIView!
     //MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let fullString = "Số tài khoản : minhtrang16121992\nSố tiền giao dịch : -1,000,000 VND\nSố dư cuối : 5,523,125 VND\nNội dung giao dịch : Chuyen khoan ca nhan"
+        demoLabel.attributedText = formatText(fullString: fullString as NSString)
+        
         EXPANDTABBAR = getTabbarHeight()
         setupUI()
-        
+//        self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +81,11 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
 
     }
 
+    //MARK: Action
+    
+    @IBAction func Tapme(_ sender: Any) {
+        print(demoLabel.text)
+    }
     
     //MARK: Setup UI
     
@@ -64,28 +94,82 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
         setupTabbar()
         setupGif()
         navBarView.setHeader(title: "Ứng dụng đọc báo điện tử PressReader", subtitle: "", type: .VNAHEADER_ONE_LINE_SIMPLE)
-        buttonView.setupButton(animation: "gift-on-the-way", title: "Ví gia đình")
-        ic2.setupButton(animation: "ic1", title: "VNPAY")
-        ic3.setupButton(animation: "ic2", title: "Demo")
-        ic4.setupButton(animation: "ic1", title: "Test")
+        navBarView.leftBtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+
+        buttonView.setupButton(animation: "qrpay", title: "Ví gia đình")
+        ic2.setupButton(animation: "qrpay", title: "VNPAY")
+        ic3.setupButton(animation: "qrpay", title: "GetContact")
+        ic4.setupButton(animation: "qrpay", title: "QRPay")
         
+        buttonView.ButtonAnimation.addTarget(self, action: #selector(tapbtn), for: .touchUpInside)
+        buttonView.ButtonAnimation.tag = 1
+        ic2.ButtonAnimation.addTarget(self, action: #selector(tapbtn), for: .touchUpInside)
+        ic2.ButtonAnimation.tag = 2
         ic3.ButtonAnimation.addTarget(self, action: #selector(tapbtn), for: .touchUpInside)
         ic3.ButtonAnimation.tag = 3
         ic4.ButtonAnimation.addTarget(self, action: #selector(tapbtn), for: .touchUpInside)
         ic4.ButtonAnimation.tag = 4
     }
     
+    @objc func backAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func tapbtn(sender: UIButton) {
         
         switch sender.tag {
+        case 1:
+            let stb = UIStoryboard(name: "ContactVC", bundle: nil)
+            let vc = stb.instantiateViewController(withIdentifier: "ContactVC") as! ContactVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            break
         case 3:
-            Defaults.set(listIT: changeColorView.ListIcon)
+            let popupView = PopupView(frame: CGRect(x: 0, y: 400, width: 375, height: 250))
+            view.addSubview(popupView)
         case 4:
-            print("Defaults: \(Defaults.getListIC())")
+//            readerVC.delegate = self
+            
+            // Or by using the closure pattern
+            readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+                print(result?.value)
+                
+                guard let url = URL(string: result?.value ?? "") else { return }
+                UIApplication.shared.open(url)
+            }
+
+            // Presents the readerVC as modal form sheet
+            readerVC.modalPresentationStyle = .formSheet
+           
+            present(readerVC, animated: true, completion: nil)
+
         default:
             break
         }
     }
+    
+    // MARK: - QRCodeReaderViewController Delegate Methods
+
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+      reader.stopScanning()
+
+      dismiss(animated: true, completion: nil)
+    }
+
+    //This is an optional delegate method, that allows you to be notified when the user switches the cameraName
+    //By pressing on the switch camera button
+    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
+//        if let cameraName = newCaptureDevice.device.localizedName {
+//          print("Switching capture to: \(cameraName)")
+//        }
+    }
+
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+      reader.stopScanning()
+
+      dismiss(animated: true, completion: nil)
+    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -127,8 +211,9 @@ class ViewController: UIViewController, RSKImageCropViewControllerDelegate, UIIm
                 changeColorView.showTitleView(isShow: true)
                 changeColorView.removePlus()
             } else {
-                changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .changed))
-                changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .ended))
+//                changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .began))
+//                changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .changed))
+//                changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .ended))
             }
             
         }
@@ -208,8 +293,24 @@ extension ViewController {
         changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .began))
         changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .changed))
         changeColorView.addGestureRecognizer(createSwipeGestureRecognizerNew(for: .ended))
+        
+        backgroundView = UIView(frame: ScreenSize)
+        backgroundView.backgroundColor = .cgRGBA(rgba: "0 0 0, 0.7")
+        self.view.addSubview(backgroundView)
+        backgroundView.isHidden = true
+        self.view.bringSubviewToFront(changeColorView)
+        
+        addBackground()
+
     }
         
+    func addBackground() {
+        
+
+        if changeColorView.isSettingView {
+            backgroundView.isHidden = false
+        }
+    }
     
 //    private func createSwipeGestureRecognizer(for direction: UISwipeGestureRecognizer.Direction) -> UISwipeGestureRecognizer {
 //        var swipeGestureRecognizer = UISwipeGestureRecognizer()
@@ -351,4 +452,43 @@ extension ViewController {
     }
     
  
+}
+
+
+extension ViewController {
+    
+    func formatText(fullString: NSString) -> NSAttributedString {
+        
+        let font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        let boldFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        
+
+        let textArr = fullString.components(separatedBy: "\n")
+        let text1 = textArr[0].components(separatedBy: ":")
+        let text2 = textArr[1].components(separatedBy: ":")
+        let text3 = textArr[2].components(separatedBy: ":")
+        
+        
+        let boldPartOfString1: NSString = text1[1] as NSString
+        let colorText: String = String(text2[1].first == " " ? String(text2[1].dropFirst()) : text2[1])
+        let boldPartOfString2: NSString = text3[1] as NSString
+        
+        let color = colorText.first == "+" ? UIColor.cgRGB(rgb: "0 104 133") : UIColor.cgRGB(rgb: "196 37 63")
+        
+        let nonBoldFontAttribute = [NSAttributedString.Key.font:font]
+        
+        let boldFontAttribute = [NSAttributedString.Key.font:boldFont]
+                
+        let colorAttribute = [NSAttributedString.Key.foregroundColor: color]
+        
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+        
+        let boldString = NSMutableAttributedString(string: fullString as String, attributes:nonBoldFontAttribute)
+        
+        boldString.addAttributes(boldFontAttribute, range: fullString.range(of: boldPartOfString1 as String))
+        boldString.addAttributes(colorAttribute, range: fullString.range(of: colorText as String))
+        boldString.addAttributes(boldFontAttribute, range: fullString.range(of: boldPartOfString2 as String))
+        
+        return boldString
+    }
 }
