@@ -1,5 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-gif/Pods-gif-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/FittedSheets/FittedSheets.framework
-${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework
 ${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework

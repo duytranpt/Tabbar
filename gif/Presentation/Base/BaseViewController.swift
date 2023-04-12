@@ -52,3 +52,32 @@ class BaseViewController: UIViewController {
             callback()
         })
     }}
+
+extension BaseViewController {
+    
+    func showNewAlertOkay(withMessage message:String, action: @escaping () -> Void) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: { _ in
+            action()
+        })
+        alert.addAction(cancel)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+    
+    func setApplicationIconName(_ iconName: String?) {
+        if UIApplication.shared.responds(to: #selector(getter: UIApplication.supportsAlternateIcons)) && UIApplication.shared.supportsAlternateIcons {
+            
+            typealias setAlternateIconName = @convention(c) (NSObject, Selector, NSString?, @escaping (NSError) -> ()) -> ()
+            
+            let selectorString = "_setAlternateIconName:completionHandler:"
+            
+            let selector = NSSelectorFromString(selectorString)
+            let imp = UIApplication.shared.method(for: selector)
+            let method = unsafeBitCast(imp, to: setAlternateIconName.self)
+            method(UIApplication.shared, selector, iconName as NSString?, { _ in })
+        }
+    }
+}

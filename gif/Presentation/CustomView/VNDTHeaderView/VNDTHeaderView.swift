@@ -114,6 +114,11 @@ class VNDTHeaderView: UIView {
         }
     }
     
+    func whiteBackgroud() {
+        self.removeGradient()
+        self.imgBongSen?.isHidden = true
+    }
+    
     func addCustomView(_ viewMore: UIView) {
         viewMore.y = self.height
         viewMore.alpha = 1;

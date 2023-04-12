@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add New ContactVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddNewContactVC" id="Y6W-OH-hqX" customClass="AddNewContactVC" customModule="gif" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJX-6F-gqS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ZYx-0Z-QVP"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KyK-BS-8eZ">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsv-ko-D0Q" customClass="InforView" customModule="gif" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bsv-ko-D0Q" secondAttribute="trailing" id="4Xv-rj-faf"/>
+                                    <constraint firstItem="bsv-ko-D0Q" firstAttribute="height" secondItem="KyK-BS-8eZ" secondAttribute="height" priority="250" id="874-gs-NU8"/>
+                                    <constraint firstItem="bsv-ko-D0Q" firstAttribute="leading" secondItem="KyK-BS-8eZ" secondAttribute="leading" id="ICN-yh-lDu"/>
+                                    <constraint firstItem="bsv-ko-D0Q" firstAttribute="top" secondItem="KyK-BS-8eZ" secondAttribute="top" id="JEi-TO-U48"/>
+                                    <constraint firstAttribute="bottom" secondItem="bsv-ko-D0Q" secondAttribute="bottom" id="adb-Eq-dAB"/>
+                                    <constraint firstItem="bsv-ko-D0Q" firstAttribute="width" secondItem="KyK-BS-8eZ" secondAttribute="width" id="gKR-lx-P2j"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KyK-BS-8eZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8XB-KP-Yej"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KyK-BS-8eZ" secondAttribute="trailing" id="AZo-pQ-wMH"/>
+                            <constraint firstAttribute="bottom" secondItem="KyK-BS-8eZ" secondAttribute="bottom" id="JOL-Nq-ViS"/>
+                            <constraint firstItem="LJX-6F-gqS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="TMa-Am-QUE"/>
+                            <constraint firstItem="LJX-6F-gqS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="anW-AN-OOg"/>
+                            <constraint firstItem="KyK-BS-8eZ" firstAttribute="top" secondItem="LJX-6F-gqS" secondAttribute="bottom" id="iHQ-7f-d89"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LJX-6F-gqS" secondAttribute="trailing" id="qs6-KZ-DdY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainViewContent" destination="bsv-ko-D0Q" id="dDj-TB-Cc5"/>
+                        <outlet property="navbarHeight" destination="ZYx-0Z-QVP" id="Rjq-jS-x7o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="29.770992366412212" y="4.9295774647887329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -28,7 +28,7 @@ class TabbarHomeVC: UIView {
     var listPlusView: [UIView] = []
     let ScreenSize: CGRect = UIScreen.main.bounds
     var HomeItem: HomeIcon!
-    var loadingAnimation: AnimationView?
+    var loadingAnimation: LottieAnimationView?
     var tabBarCallback: ((_ actionStr: VNAHOMETABBARACTION) -> Void)?
     
     enum VNAHOMETABBARACTION : Int {
@@ -141,7 +141,6 @@ class TabbarHomeVC: UIView {
     }
     
     func closePopup() {
-        print("Close popup!!")
         self.popupChooseColor?.removeFromSuperview()
     }
     

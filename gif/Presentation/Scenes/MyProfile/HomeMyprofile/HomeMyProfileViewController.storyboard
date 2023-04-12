@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home My Profile View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="HomeMyProfileVC" id="Y6W-OH-hqX" customClass="HomeMyProfileViewController" customModule="gif" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDQ-g0-3rh">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PMf-uJ-o8A"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWu-UA-z0m" customClass="ProfileView" customModule="gif" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="393" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="RCy-2X-l1S"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kr1-wL-t5e" customClass="DTScrollView" customModule="gif" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="200" width="393" height="652"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="393" id="Hgc-Ax-FZl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kr1-wL-t5e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="4yG-0E-gex"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DDQ-g0-3rh" secondAttribute="trailing" id="DIA-Yf-BSa"/>
+                            <constraint firstItem="DDQ-g0-3rh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Fsd-cI-Fjk"/>
+                            <constraint firstItem="IWu-UA-z0m" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IC4-vS-G00"/>
+                            <constraint firstAttribute="bottom" secondItem="kr1-wL-t5e" secondAttribute="bottom" id="Q3Q-uX-81h"/>
+                            <constraint firstItem="kr1-wL-t5e" firstAttribute="top" secondItem="IWu-UA-z0m" secondAttribute="bottom" id="RI8-YF-MuW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IWu-UA-z0m" secondAttribute="trailing" id="RUv-0P-7Kw"/>
+                            <constraint firstItem="DDQ-g0-3rh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Wa9-nM-dXT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kr1-wL-t5e" secondAttribute="trailing" id="nO7-Kc-hJL"/>
+                            <constraint firstItem="IWu-UA-z0m" firstAttribute="top" secondItem="DDQ-g0-3rh" secondAttribute="bottom" id="rsk-Um-EH7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navibarHight" destination="PMf-uJ-o8A" id="0de-4Y-1F9"/>
+                        <outlet property="profileView" destination="IWu-UA-z0m" id="TgG-b4-QFu"/>
+                        <outlet property="scrollviewWidth" destination="Hgc-Ax-FZl" id="uom-gY-q0C"/>
+                        <outlet property="vScrollview" destination="kr1-wL-t5e" id="Gi2-6x-OgA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="4.9295774647887329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

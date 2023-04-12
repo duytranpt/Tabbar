@@ -83,6 +83,7 @@ class VNBButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
+        updateView()
     }
     
     
@@ -167,6 +168,7 @@ class VNBButton: UIButton {
         self.boderWith = 1
         self.boderWithColor = .cgRGB(rgb: "219 163 16")
         
+        self.setTitle("", for: .normal)
         var ButtonTitle: UILabel!
         ButtonTitle = UILabel()
         ButtonTitle.text = title
@@ -201,7 +203,7 @@ class VNBButton: UIButton {
         var ButtonTitle: UILabel!
         ButtonTitle = UILabel()
         ButtonTitle.text = title
-        ButtonTitle.font = .systemFont(ofSize: 15, weight: .medium)
+        ButtonTitle.font = .fontMedium(15)
         ButtonTitle.textColor = .white
         self.addSubview(ButtonTitle)
         ButtonTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -284,7 +286,7 @@ class VNBButton: UIButton {
         
     }
 
-    func buttonLeftImg(title: String, img: UIImage?) {
+    private func buttonLeftImg(title: String, img: UIImage?) {
         
         self.boderWithColor = .clear
         self.backgrColor = .white
@@ -345,6 +347,37 @@ class VNBButton: UIButton {
         ButtonTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         ButtonTitle.leftAnchor.constraint(equalTo: img.rightAnchor, constant: 4).isActive = true
         ButtonTitle.heightAnchor.constraint(equalToConstant: 18).isActive = true
+    }
+    
+    func buttonLeftImg(title: String, img: String, textColor: UIColor) {
+        
+        self.boderWithColor = .clear
+        self.backgrColor = .white
+        
+        var ButtonTitle: UILabel!
+        ButtonTitle = UILabel()
+        ButtonTitle.text = title
+        ButtonTitle.textColor = textColor
+        ButtonTitle.font = .fontMedium(13)
+
+        let img = UIImageView(image: UIImage(named: img))
+        
+        self.addSubview(img)
+        self.addSubview(ButtonTitle)
+        
+        img.translatesAutoresizingMaskIntoConstraints = false
+        ButtonTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
+        img.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        img.widthAnchor.constraint(equalToConstant: 16).isActive = true
+        img.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        img.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        
+        ButtonTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        ButtonTitle.leftAnchor.constraint(equalTo: img.rightAnchor, constant: 10).isActive = true
+        ButtonTitle.heightAnchor.constraint(equalToConstant: 16).isActive = true
     }
 
     func buttonRightImg(title: String, img: String) {
@@ -410,6 +443,12 @@ class VNBButton: UIButton {
         ButtonTitle.heightAnchor.constraint(equalToConstant: 18).isActive = true
 
         
+    }
+    
+    func setTitle(_ title: String?, color: UIColor?) {
+        self.setTitle(title, for: .normal)
+        self.titleLabel?.font = .fontMedium(15)
+        self.TitleColor = color!
     }
     
     private func setupSubTitle(title: String, sub: String) {

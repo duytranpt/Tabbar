@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginMyProfileVC" customModule="gif" customModuleProvider="target">
+            <connections>
+                <outlet property="inputPhoneNumber" destination="He2-B7-Ej7" id="X0F-Yg-TmS"/>
+                <outlet property="navbarHeight" destination="QRj-fj-hhG" id="BwS-v1-u1H"/>
+                <outlet property="titleLbl" destination="Vej-mS-el1" id="zeH-D3-ySk"/>
+                <outlet property="validatePhoneNumberLbl" destination="Sok-fR-Rhf" id="Ufc-kA-sgC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-pO-IkQ">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="QRj-fj-hhG"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vej-mS-el1" customClass="DTLabel" customModule="gif" customModuleProvider="target">
+                    <rect key="frame" x="15" y="116" width="363" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="He2-B7-Ej7" customClass="NewTextInputView" customModule="gif" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="148.33333333333334" width="393" height="59"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="59" id="hRC-Yg-gSn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="NO"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="Title" value="Đăng nhập bằng số điện thoại"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="TypeBtn">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="MainType">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bee-FE-AFV" customClass="VNBButton" customModule="gif" customModuleProvider="target">
+                    <rect key="frame" x="15" y="749" width="363" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="u97-SX-gg0"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="TypeBtn">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="Title" value="Xác nhận"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="TitleColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="Sna-N1-mHo"/>
+                    </connections>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sok-fR-Rhf">
+                    <rect key="frame" x="350" y="211.33333333333334" width="28" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="5zO-x9-8un"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <color key="textColor" name="rgb 196 37 63"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Vej-mS-el1" firstAttribute="top" secondItem="0dJ-pO-IkQ" secondAttribute="bottom" constant="16" id="1zS-cq-tpt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="He2-B7-Ej7" secondAttribute="trailing" id="3JW-TI-R8K"/>
+                <constraint firstItem="He2-B7-Ej7" firstAttribute="top" secondItem="Vej-mS-el1" secondAttribute="bottom" constant="12" id="8ZU-QJ-1cI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vej-mS-el1" secondAttribute="trailing" constant="15" id="AcU-Me-XxS"/>
+                <constraint firstItem="0dJ-pO-IkQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hck-2y-M3G"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0dJ-pO-IkQ" secondAttribute="trailing" id="VPP-0N-Cqm"/>
+                <constraint firstItem="He2-B7-Ej7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vf4-j3-e8k"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bee-FE-AFV" secondAttribute="bottom" constant="25" id="XcA-nW-q8x"/>
+                <constraint firstItem="Bee-FE-AFV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="dra-dV-ICT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bee-FE-AFV" secondAttribute="trailing" constant="15" id="jf5-oK-Urz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Sok-fR-Rhf" secondAttribute="trailing" constant="15" id="nAw-lc-0ge"/>
+                <constraint firstItem="Vej-mS-el1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="sxb-RW-dpO"/>
+                <constraint firstItem="Sok-fR-Rhf" firstAttribute="top" secondItem="He2-B7-Ej7" secondAttribute="bottom" constant="4" id="toa-wc-39h"/>
+                <constraint firstItem="0dJ-pO-IkQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uIk-Ws-1bl"/>
+            </constraints>
+            <point key="canvasLocation" x="-51" y="21"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="Bee-FE-AFV">
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="rgb 196 37 63">
+            <color red="0.7686274509803922" green="0.14509803921568629" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -9,5 +9,5 @@ target 'gif' do
 	pod 'lottie-ios'
   pod 'RSKImageCropper'
   pod 'FittedSheets'
-  pod 'QRCodeReader.swift', '~> 10.1.0'
+  pod 'SwiftyJSON'
 end

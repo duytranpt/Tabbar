@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Arr</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Cá nhân</string>
+			<key>HomeItem</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Thông tin tài khoản</string>
+					<key>action</key>
+					<string>moveToNewInfor</string>
+					<key>icon</key>
+					<string>icon_account</string>
+					<key>des</key>
+					<string>Chỉnh sửa, cập nhật thông tin tài khoản My Profile</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Danh bạ hành khách bay</string>
+					<key>action</key>
+					<string>moveToNewContact</string>
+					<key>icon</key>
+					<string>icon_contact</string>
+					<key>des</key>
+					<string>Quản lý thông tin người thân hay bạn bè của bạn</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Tiện ích</string>
+			<key>HomeItem</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Hành trình của bạn</string>
+					<key>action</key>
+					<string>showAlert</string>
+					<key>icon</key>
+					<string>icon_plaint</string>
+					<key>des</key>
+					<string>Theo dõi lịch sử chặng bay đã hoàn thành</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Phương thức thanh toán</string>
+					<key>action</key>
+					<string>moveToMyBookings</string>
+					<key>icon</key>
+					<string>icon_payment</string>
+					<key>des</key>
+					<string>Quản lý phương thức thanh toán</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

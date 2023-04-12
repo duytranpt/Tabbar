@@ -296,25 +296,47 @@ extension UIView {
             self.center = CGPoint(x: newValue, y: self.centerY)
         }
     }
+    
+    func setPositionY(_ postY: CGFloat) {
+        var r = frame
+        r.origin.y = Double(postY)
+        UIView.animate(withDuration: 0.25, animations: { [self] in
+            frame = r
+        }) { finished in
+        }
+    }
 
 }
 
 extension UIView {
     func addDashedBorder(lineWidth: CGFloat, color: UIColor) {
-      let shapeLayer:CAShapeLayer = CAShapeLayer()
-      let shapeRect = CGRect(x: 0, y: 0, width: self.width, height: self.height)
-      
-      shapeLayer.bounds = shapeRect
-      shapeLayer.position = CGPoint(x: self.width/2, y: self.height/2)
-      shapeLayer.fillColor = UIColor.clear.cgColor
+        let shapeLayer:CAShapeLayer = CAShapeLayer()
+        let shapeRect = CGRect(x: 0, y: 0, width: self.width, height: self.height)
+        
+        shapeLayer.bounds = shapeRect
+        shapeLayer.position = CGPoint(x: self.width/2, y: self.height/2)
+        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color.cgColor
-      shapeLayer.lineWidth = lineWidth
-      shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-      shapeLayer.lineDashPattern = [6,3]
-      shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: self.vCornerRadius).cgPath
-      
-      self.layer.addSublayer(shapeLayer)
-  }
+        shapeLayer.lineWidth = lineWidth
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+        shapeLayer.lineDashPattern = [6,3]
+        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: self.vCornerRadius).cgPath
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 20, scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+        
+        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
 }
 
 extension UIView {
@@ -328,5 +350,30 @@ extension UIView {
         subviews
             .filter { $0.isMember(of: type) }
             .forEach { $0.removeFromSuperview() }
+    }
+}
+
+public extension UIView {
+    func popIn(duration: TimeInterval = 0.5) {
+        self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        UIView.animate(withDuration: duration, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseOut, animations: {
+            self.alpha = 1
+            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil)
+    }
+    
+    func popOut(duration: TimeInterval = 0.5) {
+        UIView.animate(withDuration: duration, delay: 1.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseOut, animations: {
+            self.alpha = 0
+            self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        }, completion: nil)
+    }
+}
+
+
+extension UIView {
+    func randomNumber(length: Int) -> String {
+        let letters = "1234567890"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DocumentView" customModule="gif" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="GqP-oL-uSm"/>
+                <outlet property="country" destination="ssV-rY-EVL" id="Kul-ae-xVs"/>
+                <outlet property="dateEx" destination="yIs-Xo-B05" id="QQO-S1-bRY"/>
+                <outlet property="deleteBtn" destination="w8B-Z8-9fz" id="tPc-YY-o5e"/>
+                <outlet property="documentId" destination="vFC-tP-SNi" id="pfF-cD-RAz"/>
+                <outlet property="documentType" destination="5Ax-J7-Ij1" id="TdY-gE-rJc"/>
+                <outlet property="nationality" destination="yhd-9T-NjV" id="iHL-DM-48l"/>
+                <outlet property="numberDocumentTitleLbl" destination="ArU-gv-01b" id="dmV-0H-qo0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="355"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="kQ9-Pu-46y">
+                    <rect key="frame" x="15" y="0.0" width="363" height="16"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArU-gv-01b">
+                            <rect key="frame" x="0.0" y="0.0" width="229" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8B-Z8-9fz" customClass="VNBButton" customModule="gif" customModuleProvider="target">
+                            <rect key="frame" x="313" y="0.0" width="50" height="16"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="yD3-0k-aIz"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="weW-3w-pEP"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hbH-DX-xiu">
+                    <rect key="frame" x="0.0" y="28" width="393" height="327"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-J7-Ij1" customClass="VNAChooseSelectionView" customModule="gif" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="59"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="59" id="5xd-Zn-xjJ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFC-tP-SNi" customClass="DTTextInputView" customModule="gif" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="67" width="393" height="59"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="59" id="EDV-Gb-m98"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-9T-NjV" customClass="VNAChooseSelectionView" customModule="gif" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="134" width="393" height="59"/>
+                            <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="59" id="Kdg-PS-jaA"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-Xo-B05">
+                            <rect key="frame" x="0.0" y="201" width="393" height="59"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="59" id="g1s-h6-c1I"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssV-rY-EVL" customClass="VNAChooseSelectionView" customModule="gif" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="268" width="393" height="59"/>
+                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="59" id="Ojk-HB-w0y"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="hbH-DX-xiu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5XP-jd-QwD"/>
+                <constraint firstItem="kQ9-Pu-46y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cdJ-sV-5Zz"/>
+                <constraint firstItem="hbH-DX-xiu" firstAttribute="top" secondItem="kQ9-Pu-46y" secondAttribute="bottom" constant="12" id="d21-NM-dpy"/>
+                <constraint firstItem="kQ9-Pu-46y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="i08-kq-H1j"/>
+                <constraint firstAttribute="trailing" secondItem="kQ9-Pu-46y" secondAttribute="trailing" constant="15" id="lQS-QL-4zt"/>
+                <constraint firstAttribute="trailing" secondItem="hbH-DX-xiu" secondAttribute="trailing" id="rka-1U-QbW"/>
+                <constraint firstAttribute="bottom" secondItem="hbH-DX-xiu" secondAttribute="bottom" id="ux4-p5-feJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139.4859813084112" y="25.269978401727865"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="w8B-Z8-9fz">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
