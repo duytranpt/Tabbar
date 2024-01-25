@@ -1,28 +1,24 @@
 PODS:
-  - FittedSheets (2.5.3)
   - lottie-ios (4.1.3)
   - RSKImageCropper (4.0.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
-  - FittedSheets
   - lottie-ios
   - RSKImageCropper
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
-    - FittedSheets
     - lottie-ios
     - RSKImageCropper
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  FittedSheets: c22df4c06036515f247951fa174912e8a65c8ce4
   lottie-ios: d0954d3150061f662ed0adf96ef98d7421864c47
   RSKImageCropper: 90dfe482402fb8a40cabd5fea65186d9102cc425
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 44d9a5eaa531c69e6650ec30b9f685c6f6012ec4
+PODFILE CHECKSUM: 9f3be57944d6bb140b367f654a1192abc9fc9a0e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.3

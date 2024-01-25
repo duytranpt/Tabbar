@@ -10,11 +10,33 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+   public var title = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            if shortcutItem.type == "com.yoursite.yourapp.adduser" {
+                title = "123456789"
+                
+            }
+        }
         return true
+    }
+    
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        if(shortcutItem.type == "com.yoursite.yourapp.adduser" ) {
+            self.moveTo(shortcutItem)
+        }
+        
+    }
+    
+    func moveTo(_ item :UIApplicationShortcutItem) {
+        
+        if item.type == "com.yoursite.yourapp.adduser" {
+           title = "123456789"
+            
+        }
     }
 
     // MARK: UISceneSession Lifecycle

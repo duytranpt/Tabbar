@@ -13,7 +13,7 @@ class OTPVC: BaseViewController {
     @IBOutlet weak var OtpView: OTPStackView!
     @IBOutlet weak var validateOtpLbl: UILabel!
     @IBOutlet weak var navbarHeight: NSLayoutConstraint!
-    @IBOutlet weak var titleLbl: DTLabel!
+    @IBOutlet weak var titleLbl: VNDTLabel!
     
     var phoneNumber: NSString = ""
     
@@ -51,6 +51,9 @@ class OTPVC: BaseViewController {
         }
         
         validateOtpLbl.isHidden = true
+        let jsonData = self.readLocalJSONFile(forName: "data")
+        let respond = ProfileModel(jsonData!)
+        UserDefaults.saveUserData(userData: respond)
         let storyBoard = UIStoryboard(name: "HomeMyProfileViewController", bundle:Bundle.main)
         let vc = storyBoard.instantiateViewController(withIdentifier: "HomeMyProfileVC") as! HomeMyProfileViewController
         self.navigationController?.pushViewController(vc, animated: true)

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,13 +25,36 @@
                                     <constraint firstAttribute="height" constant="100" id="HIW-qT-RMM"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdu-qP-NAL">
+                                <rect key="frame" x="15" y="416.66666666666669" width="363" height="44"/>
+                                <color key="backgroundColor" name="rgb 219 163 16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="xTw-aG-t4P"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Show popup">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="vCornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showPopupAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GLe-mK-NAk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xdu-qP-NAL" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1g4-i2-Lnz"/>
+                            <constraint firstItem="xdu-qP-NAL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="4Xi-j0-yVc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y6K-mQ-INu" secondAttribute="trailing" id="8Zd-U0-0Wm"/>
                             <constraint firstItem="Y6K-mQ-INu" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ZOv-5b-fC8"/>
                             <constraint firstItem="Y6K-mQ-INu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ceP-Wc-op2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xdu-qP-NAL" secondAttribute="trailing" constant="15" id="i0I-QJ-EUM"/>
+                            <constraint firstItem="xdu-qP-NAL" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="rHc-QZ-MXZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -39,10 +63,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="-2"/>
+            <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="rgb 219 163 16">
+            <color red="0.85882352941176465" green="0.63921568627450975" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

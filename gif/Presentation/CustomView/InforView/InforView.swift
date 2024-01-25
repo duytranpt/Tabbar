@@ -47,7 +47,7 @@ class InforView: BaseView {
     @IBOutlet weak var clearAllContentBtn: VNBButton!
     @IBOutlet weak var cancelBtn: VNBButton!
     @IBOutlet weak var confirmBtn: VNBButton!
-    @IBOutlet weak var privacyPolicyLbl: DTLabel!
+    @IBOutlet weak var privacyPolicyLbl: VNDTLabel!
     @IBOutlet weak var privacyPolicyView: UIView!
     
     
@@ -215,11 +215,11 @@ class InforView: BaseView {
         let fullString: NSString = "Bằng việc bấm Cập nhật, Tôi đã đọc và đồng ý với chính sách bảo mật thông tin, quyền riêng tư của Vietnam Airline"
         let arrColor: [NSString] = ["chính sách bảo mật thông tin, quyền riêng tư"]
         privacyPolicyLbl.formatText(fullString: fullString, boldPartOfString: arrColor, font: .fontMedium(13), boldFont: .fontBold(13), color: .cgRGB(rgb: "219 163 16"), underLine: true)
-        privacyPolicyLbl.tapLabel(key: arrColor) { link in
-            if link == 0 {
-                print("Mở cái này trong br")
-            }
-        }
+//        privacyPolicyLbl.tapLabel(key: arrColor) { link in
+//            if link == 0 {
+//                print("Mở cái này trong br")
+//            }
+//        }
         
         cancelBtn.addAction { [weak self] in
             guard let wSelf = self else { return }

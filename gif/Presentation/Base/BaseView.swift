@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseView: UIView {
+class BaseView: UIView, NibView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -20,5 +20,28 @@ class BaseView: UIView {
     
     func commonInit() {
         
+    }
+}
+
+extension BaseView {
+    func appWindow() -> UIWindow? {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let windowDelegate = windowScene.delegate as? SceneDelegate {
+            return windowDelegate.window
+        }
+        
+        return nil
+    }
+    
+    func show() {
+        let wd = self.appWindow()
+        if (self.superview == nil){
+            wd?.addSubview(self)
+            wd?.bringSubviewToFront(self)
+        }
+    }
+    
+    func hide() {
+        self.removeFromSuperview()
     }
 }

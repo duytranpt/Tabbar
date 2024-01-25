@@ -8,6 +8,5 @@ target 'gif' do
   # Pods for gif
 	pod 'lottie-ios'
   pod 'RSKImageCropper'
-  pod 'FittedSheets'
   pod 'SwiftyJSON'
 end

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DTLabel: UILabel {
+class VNDTLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,21 +50,21 @@ class DTLabel: UILabel {
         return boldString
     }
     
-    func tapLabel(key: [NSString], action: @escaping (Int) -> Void) {
-        self.isUserInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer { recognizer in
-            for (index, element) in key.enumerated() {
-                let text = (self.text)!
-                let termsRange: NSRange = (text as NSString).range(of: element as String)
-                if recognizer.didTapAttributedTextInLabel(label: self, inRange: termsRange) {
-                    action(index)
-                    break
-                }
-            }
-            
-        }
-        self.addGestureRecognizer(tapRecognizer)
-    }
+//    func tapLabel(key: [NSString], action: @escaping (Int) -> Void) {
+//        self.isUserInteractionEnabled = true
+//        let tapRecognizer = UITapGestureRecognizer { recognizer in
+//            for (index, element) in key.enumerated() {
+//                let text = (self.text)!
+//                let termsRange: NSRange = (text as NSString).range(of: element as String)
+//                if recognizer.didTapAttributedTextInLabel(label: self, inRange: termsRange) {
+//                    action(index)
+//                    break
+//                }
+//            }
+//            
+//        }
+//        self.addGestureRecognizer(tapRecognizer)
+//    }
     
     func text(str: String) {
         self.text = bo_dau_Tieng_Viet(str)
@@ -74,38 +74,90 @@ class DTLabel: UILabel {
 
 extension UIGestureRecognizer {
     
-    func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
-        // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
-        let layoutManager = NSLayoutManager()
-        let textContainer = NSTextContainer(size: CGSize.zero)
-        let textStorage = NSTextStorage(attributedString: label.attributedText!)
+//    func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
+//        // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
+//        let layoutManager = NSLayoutManager()
+//        let textContainer = NSTextContainer(size: CGSize.zero)
+//        let textStorage = NSTextStorage(attributedString: label.attributedText!)
+//
+//        // Configure layoutManager and textStorage
+//        layoutManager.addTextContainer(textContainer)
+//        textStorage.addLayoutManager(layoutManager)
+//
+//        // Configure textContainer
+//        textContainer.lineFragmentPadding = 0.0
+//        textContainer.lineBreakMode = label.lineBreakMode
+//        textContainer.maximumNumberOfLines = label.numberOfLines
+//        let labelSize = label.bounds.size
+//        textContainer.size = labelSize
+//
+//        // Find the tapped character location and compare it to the specified range
+//        let locationOfTouchInLabel = self.location(in: label)
+//        let textBoundingBox = layoutManager.usedRect(for: textContainer)
+//        let textContainerOffset = CGPoint(x: (labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
+//                                          y: (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
+//        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
+//                                                     y: locationOfTouchInLabel.y - textContainerOffset.y);
+//        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+//
+//        return NSLocationInRange(indexOfCharacter, targetRange)
+//    }
+    func rangesOfUnderlinedText(in attributedString: NSAttributedString) -> [NSRange] {
+        var ranges: [NSRange] = []
+        let range = NSRange(location: 0, length: attributedString.length)
         
-        // Configure layoutManager and textStorage
+        attributedString.enumerateAttribute(.underlineStyle, in: range, options: []) { (value, range, _) in
+            if let style = value as? Int, style != 0 {
+                ranges.append(range)
+            }
+        }
+        
+        return ranges
+    }
+    
+    func didTapAttributedTextInLabel(label: UILabel, tapLocation: CGPoint) -> Bool {
+        guard let attributedText = label.attributedText else {
+            return false
+        }
+        
+        let rangesOfUnderlinedText = rangesOfUnderlinedText(in: attributedText)
+        
+        let layoutManager = NSLayoutManager()
+        let textContainer = NSTextContainer(size: label.bounds.size)
+        let textStorage = NSTextStorage(attributedString: attributedText)
+        
         layoutManager.addTextContainer(textContainer)
         textStorage.addLayoutManager(layoutManager)
         
-        // Configure textContainer
         textContainer.lineFragmentPadding = 0.0
         textContainer.lineBreakMode = label.lineBreakMode
         textContainer.maximumNumberOfLines = label.numberOfLines
-        let labelSize = label.bounds.size
-        textContainer.size = labelSize
+        textContainer.size = label.bounds.size
         
-        // Find the tapped character location and compare it to the specified range
-        let locationOfTouchInLabel = self.location(in: label)
+        let locationOfTouchInLabel = tapLocation
         let textBoundingBox = layoutManager.usedRect(for: textContainer)
-        let textContainerOffset = CGPoint(x: (labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
-                                          y: (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
-        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
-                                                     y: locationOfTouchInLabel.y - textContainerOffset.y);
+        let textContainerOffset = CGPoint(x: (label.bounds.size.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x, y: (label.bounds.size.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y)
+        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x, y: locationOfTouchInLabel.y - textContainerOffset.y)
         let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         
-        return NSLocationInRange(indexOfCharacter, targetRange)
+        for range in rangesOfUnderlinedText {
+            if NSLocationInRange(indexOfCharacter, range) {
+                return true
+            }
+        }
+        
+        return false
     }
+
+}
+
+extension UILabel {
+    
+
 }
 
 
-extension DTLabel {
+extension VNDTLabel {
     func bo_dau_Tieng_Viet(_ str: String?) -> String? {
         var vn = str?.replacingOccurrences(of: "đ", with: "d")
         vn = vn?.replacingOccurrences(of: "Đ", with: "D")

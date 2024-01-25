@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="OtpView" destination="Ndl-Oe-11E" id="TFm-Jc-lKK"/>
                 <outlet property="navbarHeight" destination="VbE-cS-StA" id="nWy-pC-ENn"/>
-                <outlet property="titleLbl" destination="IAv-wd-M7q" id="I8c-Lp-NCQ"/>
+                <outlet property="titleLbl" destination="IAv-wd-M7q" id="u3L-Kv-CKg"/>
                 <outlet property="validateOtpLbl" destination="mbg-Rc-4Mm" id="AjH-ko-SUo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +31,7 @@
                         <constraint firstAttribute="height" constant="100" id="VbE-cS-StA"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập mã xác thực được gửi về số điện thoại 0981234567 của  Quý khách" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAv-wd-M7q" customClass="DTLabel" customModule="gif" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập mã xác thực được gửi về số điện thoại 0981234567 của  Quý khách" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAv-wd-M7q" customClass="VNDTLabel" customModule="gif" customModuleProvider="target">
                     <rect key="frame" x="15" y="116" width="405" height="35"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" name="rgb 144 144 144"/>
@@ -163,8 +163,8 @@
         </view>
     </objects>
     <designables>
-        <designable name="oy6-QM-pEP">
-            <size key="intrinsicContentSize" width="119" height="34"/>
+        <designable name="33b-e2-g53">
+            <size key="intrinsicContentSize" width="75" height="38.333333333333336"/>
         </designable>
     </designables>
     <resources>

@@ -10,6 +10,7 @@ import Lottie
 import SwiftyJSON
 import WebKit
 import SafariServices
+import Photos
 
 class ViewController: BaseViewController, SFSafariViewControllerDelegate {
  
@@ -17,7 +18,10 @@ class ViewController: BaseViewController, SFSafariViewControllerDelegate {
     //MARK: Outlet
     @IBOutlet weak var navibarHeight: NSLayoutConstraint!
     @IBOutlet weak var changeColorView: TabbarHomeVC!
-    @IBOutlet weak var animationView: LottieAnimationView!
+    @IBOutlet weak var lblTerms: UILabel!
+    
+    @IBOutlet weak var demoView: UIView!
+    @IBOutlet weak var vQR: UIImageView!
     
     var myViewHeightConstraint: NSLayoutConstraint!
     var imagePicker : UIImagePickerController!
@@ -25,24 +29,40 @@ class ViewController: BaseViewController, SFSafariViewControllerDelegate {
     var EXPANDTABBAR: CGFloat!
     var _hTabBar: CGFloat = 0
     var didExpanded: Bool!
+    var mediaAssets: PHFetchResult<PHAsset>? = nil
     
     let dateFormatter = "dd/MM/yyyy"
     let ScreenSize: CGRect = UIScreen.main.bounds
     var backgroundView: UIView!
+    let text = "Please agree for Terms & Conditions."
     //MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setHeader(title: "Ứng dụng đọc báo điện tử PressReader", subTitle: "", Type: .ONE_LINE_SIMPLE)
+        
+        self.setHeader(title: appDelegate.title, subTitle: "", Type: .ONE_LINE_SIMPLE)
         self.hideAllButton()
         EXPANDTABBAR = getTabbarHeight()
         setupUI()
         
-        let jsonData = self.readLocalJSONFile(forName: "data")
-        let respond = ProfileModel(jsonData!)
-        UserDefaults.saveUserData(userData: respond)
-
+        
+        lblTerms.startCountdown(from: 5) {
+            self.view.backgroundColor = UIColor(hexString:"1EA5FC")
+        }
+        
     }
     
+    @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
+        let termsRange = (text as NSString).range(of: "Terms & Conditions")
+        // comment for now
+        //let privacyRange = (text as NSString).range(of: "Privacy Policy")
+       
+        
+//        if gesture.didTapAttributedTextInLabel(label: lblTerms, inRange: termsRange) {
+//            print("Tapped terms")
+//        } else {
+//            print("Tapped none")
+//        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -53,7 +73,6 @@ class ViewController: BaseViewController, SFSafariViewControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
         changeColorView.removePlus()
         if changeColorView.ListIcon.count > 16 && changeColorView.frame.height == SMALL_TABBAR {
             changeColorView.collectionView.isScrollEnabled = false
@@ -218,33 +237,13 @@ extension ViewController {
     }
     
     func VNATABBAR_LOTUS_SMILE() {
-        
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let fileURL = documentsURL.appendingPathComponent("urlPayment.html")
-        
-        let htmlString = "<html><script>var timer = setInterval(function(){document.getElementById('afopform').submit();if(timer){clearInterval(timer)};}, 1);</script><body><form method=\"post\" action=\"https://vnticket.vnpaytest.vn/vnapaynow/payment_select.html?txnid=537549734383616&merchant=shopeepay&src=sma&token=7a20b4946716f91ea769d34de8d6b16d\" name=\"afopform\" id=\"afopform\" ><input type=\"hidden\" name=\"CountryCode\" value=\"VN\" /><input type=\"hidden\" name=\"LanguageCode\" value=\"vi_VI\" /><input type=\"hidden\" name=\"PaymentMethodCode\" value=\"EW108\" /><input type=\"hidden\" name=\"OrderNumber\" value=\"01731675132769192706\" /><input type=\"hidden\" name=\"MerchantReturnData\" value=\"VN\" /><input type=\"hidden\" name=\"MerchantAccountCode\" value=\"VNACERT\" /><input type=\"hidden\" name=\"SuccessURL\" value=\"https://ipe-pmt.cert.sabre.com/ipe/standardpsp?supplierID=VNPY&pwsStatus=AUTHORIZED\" /><input type=\"hidden\" name=\"PendingURL\" value=\"https://ipe-pmt.cert.sabre.com/ipe/standardpsp?supplierID=VNPY&pwsStatus=PENDING\" /><input type=\"hidden\" name=\"FailureURL\" value=\"https://ipe-pmt.cert.sabre.com/ipe/standardpsp?supplierID=VNPY&pwsStatus=REFUSED\" /><input type=\"hidden\" name=\"CancelURL\" value=\"https://ipe-pmt.cert.sabre.com/ipe/standardpsp?supplierID=VNPY&pwsStatus=CANCELLED\" /><noscript><br/><br/><div style=\"text-align: center\"><h1>Processing your Transaction </h1><p>Please click continue to continue the processing of your transaction.</p><input type=\"submit\" name=\"submit\" value=\"continue\" /></div></noscript></form></body></html>"
-       
-       
-        print("fileURL: \(fileURL)")
-        let filePath = fileURL.description
-
-        try? htmlString.write(to: fileURL, atomically: true, encoding: .utf8)
-//        UIApplication.shared.open(fileURL)
-
-        let vc = SFSafariViewController(url: fileURL)
-        self.present(vc, animated: true)
-//        try? htmlString.write(toFile: filePath, atomically: true, encoding: .utf8)
-//        if let url = URL(string: filePath) {
-//          UIApplication.shared.open(url)
-//        }
-        
-        
+        print("VNATABBAR_LOTUS_SMILE")
     }
     
     func moveToAddEventVC() {
-        let storyBoard = UIStoryboard(name: "AddEventVC", bundle:Bundle.main)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "AddEventVC") as! AddEventVC
+//        let storyBoard = UIStoryboard(name: "AddEventVC", bundle:Bundle.main)
+//        let vc = storyBoard.instantiateViewController(withIdentifier: "AddEventVC") as! AddEventVC
+        let vc = VNDTSearchFlight()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -255,10 +254,15 @@ extension ViewController {
     }
     
     func moveToMyProfile() {
-//        let storyBoard = UIStoryboard(name: "HomeMyProfileViewController", bundle:Bundle.main)
-//        let vc = storyBoard.instantiateViewController(withIdentifier: "HomeMyProfileVC") as! HomeMyProfileViewController
-        let vc = LoginMyProfileVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if(UserDefaults.getInfor() == nil) {
+            let vc = LoginMyProfileVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let storyBoard = UIStoryboard(name: "HomeMyProfileViewController", bundle:Bundle.main)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "HomeMyProfileVC") as! HomeMyProfileViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func moveToAppleWalletVC() {
@@ -438,31 +442,20 @@ extension ViewController {
 //    }
 }
 
-extension ViewController {
-    func readLocalJSONFile(forName name: String) -> JSON? {
-        do {
-            if let filePath = Bundle.main.path(forResource: name, ofType: "json") {
-                let fileUrl = URL(fileURLWithPath: filePath)
-                let data = try Data(contentsOf: fileUrl)
-                return JSON(data)
-            }
-        } catch {
-            print("error: \(error)")
-        }
-        return nil
-    }
 
-    func openURL(_ urlString: String) {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        UIApplication.shared.open(url, completionHandler: { success in
-            if success {
-                print("opened")
-            } else {
-                print("failed")
-                // showInvalidUrlAlert()
+extension UILabel {
+    func startCountdown(from seconds: Int, completionHandler: (() -> Void)? = nil) {
+        var remainingTime = seconds
+        text = "\(remainingTime) s"
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            remainingTime -= 1
+            self.text = "\(remainingTime) s"
+            
+            if remainingTime == 0 {
+                timer.invalidate()
+                completionHandler?()
             }
-        })
+        }
     }
 }

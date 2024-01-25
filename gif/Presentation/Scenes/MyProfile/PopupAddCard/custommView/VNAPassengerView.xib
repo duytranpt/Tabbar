@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VNAPassengerView" customModule="gif" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="fgp-Nr-3wO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="119"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC5-Ja-7xP">
+                    <rect key="frame" x="16.000000000000004" y="41.666666666666664" width="41.333333333333343" height="35.999999999999993"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="tBt-hF-vdm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-At-k3t">
+                    <rect key="frame" x="73.333333333333329" y="42.666666666666671" width="40" height="33.666666666666671"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSa-9H-vk0">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="18"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fml-nt-7op">
+                            <rect key="frame" x="0.0" y="18" width="40" height="15.666666666666664"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="elP-Ud-EPP">
+                    <rect key="frame" x="303" y="43.666666666666664" width="74" height="31.999999999999993"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCT-UE-vBN">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="HXj-PE-8Z8"/>
+                                <constraint firstAttribute="width" constant="32" id="VIu-Kn-v2N"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <buttonConfiguration key="configuration" style="plain" image="icMinus"/>
+                            <connections>
+                                <action selector="minusAction:" destination="-1" eventType="touchUpInside" id="bVE-Gu-KtG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVe-vY-b7b">
+                            <rect key="frame" x="42" y="0.0" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="RKF-u8-K75"/>
+                                <constraint firstAttribute="height" constant="32" id="dCN-WN-NnA"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <buttonConfiguration key="configuration" style="plain" image="icPlush"/>
+                            <connections>
+                                <action selector="plusAction:" destination="-1" eventType="touchUpInside" id="jCY-3R-FxQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="elP-Ud-EPP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5KH-th-ry8"/>
+                <constraint firstItem="zeG-At-k3t" firstAttribute="leading" secondItem="qC5-Ja-7xP" secondAttribute="trailing" constant="16" id="FX0-HJ-D85"/>
+                <constraint firstItem="zeG-At-k3t" firstAttribute="centerY" secondItem="qC5-Ja-7xP" secondAttribute="centerY" id="GoF-tV-mp6"/>
+                <constraint firstItem="qC5-Ja-7xP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="SHl-w1-shk"/>
+                <constraint firstAttribute="trailing" secondItem="elP-Ud-EPP" secondAttribute="trailing" constant="16" id="h61-yx-XDe"/>
+                <constraint firstItem="qC5-Ja-7xP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rVQ-rA-R5o"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="64.885496183206101" y="30.633802816901412"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icMinus" width="32" height="32"/>
+        <image name="icPlush" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Header Alert-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="HeaderAlert" id="Y6W-OH-hqX" customClass="HeaderAlert" customModule="gif" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oO7-6q-yw5">
+                                <rect key="frame" x="76.666666666666686" y="69" width="240" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIU-nn-nDj">
+                                        <rect key="frame" x="20" y="0.0" width="200" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="rgb 219 163 16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0Tw-sj-51d"/>
+                                    <constraint firstItem="fIU-nn-nDj" firstAttribute="leading" secondItem="oO7-6q-yw5" secondAttribute="leading" constant="20" id="1fl-gn-vMp"/>
+                                    <constraint firstItem="fIU-nn-nDj" firstAttribute="centerY" secondItem="oO7-6q-yw5" secondAttribute="centerY" id="N2C-rm-Kfj"/>
+                                    <constraint firstItem="fIU-nn-nDj" firstAttribute="centerX" secondItem="oO7-6q-yw5" secondAttribute="centerX" id="SKr-Qv-IIj"/>
+                                    <constraint firstAttribute="height" constant="44" id="YbV-gD-0iE"/>
+                                    <constraint firstItem="fIU-nn-nDj" firstAttribute="height" secondItem="oO7-6q-yw5" secondAttribute="height" id="pGJ-gj-KxC"/>
+                                    <constraint firstAttribute="trailing" secondItem="fIU-nn-nDj" secondAttribute="trailing" constant="20" id="rSd-E7-86f"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="vCornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oO7-6q-yw5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="1X0-2o-gJJ"/>
+                            <constraint firstItem="oO7-6q-yw5" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="837-qq-voq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="PopupView" destination="oO7-6q-yw5" id="AVf-jV-6kk"/>
+                        <outlet property="titleLbl" destination="fIU-nn-nDj" id="XCu-Ah-tlw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="rgb 219 163 16">
+            <color red="0.85882352941176465" green="0.63921568627450975" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

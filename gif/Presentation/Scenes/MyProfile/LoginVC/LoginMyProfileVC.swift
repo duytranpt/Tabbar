@@ -10,7 +10,7 @@ import Charts
 
 class LoginMyProfileVC: BaseViewController {
 
-    @IBOutlet weak var titleLbl: DTLabel!
+    @IBOutlet weak var titleLbl: VNDTLabel!
     @IBOutlet weak var navbarHeight: NSLayoutConstraint!
     @IBOutlet weak var inputPhoneNumber: NewTextInputView!
     @IBOutlet weak var validatePhoneNumberLbl: UILabel!
@@ -24,9 +24,13 @@ class LoginMyProfileVC: BaseViewController {
         let arrHightLight: [NSString] = ["Vietnam Airlines"]
         self.titleLbl.formatText(fullString: fullString, boldPartOfString: arrHightLight, font: .fontRegular(15), boldFont: .fontBold(15), color: .cgRGB(rgb: "144 144 144"), underLine: false)
         
-//        inputPhoneNumber.typeInput = .INPUT_TYPE_NUMBER
-//        inputPhoneNumber.max_length = 10
+        self.setBackAction {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         
+        self.view.addAction {
+            self.view.endEditing(true)
+        }
     }
 
     func showAlertWithText(_ text: String) {

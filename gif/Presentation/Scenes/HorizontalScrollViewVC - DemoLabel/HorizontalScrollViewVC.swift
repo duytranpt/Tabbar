@@ -11,7 +11,7 @@ class HorizontalScrollViewVC: BaseViewController {
     @IBOutlet weak var demoSegment: CustomSegmentedControl!
     @IBOutlet weak var navbarHeight: NSLayoutConstraint!
     
-    var demoLbl: DTLabel!
+    var demoLbl: VNDTLabel!
     var scView:UIScrollView!
     let buttonPadding:CGFloat = 10
     var xOffset:CGFloat = 10
@@ -48,24 +48,24 @@ class HorizontalScrollViewVC: BaseViewController {
         let content: NSString = "Bằng việc bấm Cập nhật,\nTôi đã đọc và đồng ý với chính sách bảo mật thông tin, quyền riêng tư của Vietnam Airline"
         let arrBold: [NSString] = ["Cập nhật", "chính sách bảo mật thông tin, quyền riêng tư", "Vietnam Airline"]
         
-        demoLbl = DTLabel(frame: CGRect(x: 12, y: 250, width: screenSize.width - 40, height: 50))
+        demoLbl = VNDTLabel(frame: CGRect(x: 12, y: 250, width: screenSize.width - 40, height: 50))
         self.view.addSubview(demoLbl)
         demoLbl.numberOfLines = 0
         demoLbl.formatText(fullString: content, boldPartOfString: arrBold, font: .fontMedium(13), boldFont: .fontBold(13), color: .red, underLine: true)
-        demoLbl.tapLabel(key: arrBold) { linkTag in
-            
-            switch linkTag {
-            case 0:
-               
-                print(arrBold[0])
-            case 2:
-                print(arrBold[2])
-            case 1:
-                print(arrBold[1])
-            default:
-                break
-            }
-        }
+//        demoLbl.tapLabel(key: arrBold) { linkTag in
+//            
+//            switch linkTag {
+//            case 0:
+//               
+//                print(arrBold[0])
+//            case 2:
+//                print(arrBold[2])
+//            case 1:
+//                print(arrBold[1])
+//            default:
+//                break
+//            }
+//        }
 
     }
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,46 +39,70 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTV-9F-qhb" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="20" y="148" width="374" height="126"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siq-mG-GDv">
+                                <rect key="frame" x="15" y="355" width="384" height="200"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvH-Qq-4zh">
+                                        <rect key="frame" x="92" y="0.0" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="5De-s8-lbc"/>
+                                            <constraint firstAttribute="width" constant="200" id="GBL-N1-r6e"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="126" id="dKy-uB-7eg"/>
+                                    <constraint firstAttribute="height" constant="200" id="IxD-wd-A0l"/>
+                                    <constraint firstItem="wvH-Qq-4zh" firstAttribute="centerX" secondItem="siq-mG-GDv" secondAttribute="centerX" id="VbB-5I-uAD"/>
+                                    <constraint firstItem="wvH-Qq-4zh" firstAttribute="centerY" secondItem="siq-mG-GDv" secondAttribute="centerY" id="YL6-Ok-CHg"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="119723-3d-skyline-building"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lm-bO-vbP">
+                                <rect key="frame" x="15" y="148" width="384" height="21"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZlX-rq-6KN" appends="YES" id="BM1-lp-09p"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WTV-9F-qhb" firstAttribute="top" secondItem="Kso-2J-1N8" secondAttribute="bottom" constant="20" id="374-Ia-x85"/>
-                            <constraint firstAttribute="trailing" secondItem="WTV-9F-qhb" secondAttribute="trailing" constant="20" id="5Ts-C5-t6i"/>
+                            <constraint firstItem="siq-mG-GDv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="2b3-2R-RnM"/>
                             <constraint firstAttribute="bottom" secondItem="wSl-HS-FRL" secondAttribute="bottom" id="76W-qV-3FE"/>
                             <constraint firstItem="wSl-HS-FRL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BYc-WD-Hak"/>
-                            <constraint firstItem="WTV-9F-qhb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JKY-4X-u6S"/>
+                            <constraint firstItem="siq-mG-GDv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Egu-pu-Jsb"/>
+                            <constraint firstItem="0lm-bO-vbP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="GhM-u2-XKp"/>
                             <constraint firstItem="Kso-2J-1N8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MmO-an-5Xy"/>
+                            <constraint firstItem="siq-mG-GDv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Nms-ga-tlm"/>
                             <constraint firstItem="Kso-2J-1N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TkA-Vo-4HY"/>
                             <constraint firstItem="Kso-2J-1N8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YtH-ai-opi"/>
                             <constraint firstItem="wSl-HS-FRL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ai9-tW-Du6"/>
-                            <constraint firstItem="WTV-9F-qhb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zoX-YN-J8S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="siq-mG-GDv" secondAttribute="trailing" constant="15" id="h5b-0m-cEg"/>
+                            <constraint firstItem="0lm-bO-vbP" firstAttribute="top" secondItem="Kso-2J-1N8" secondAttribute="bottom" constant="20" id="nyz-Mc-gKS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0lm-bO-vbP" secondAttribute="trailing" constant="15" id="o6X-4n-Ms1"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animationView" destination="WTV-9F-qhb" id="3TA-FJ-n8t"/>
                         <outlet property="changeColorView" destination="wSl-HS-FRL" id="f5m-I3-ldm"/>
+                        <outlet property="demoView" destination="siq-mG-GDv" id="jLl-rx-mY9"/>
+                        <outlet property="lblTerms" destination="0lm-bO-vbP" id="6Er-8y-xER"/>
                         <outlet property="navibarHeight" destination="WiE-wY-gHV" id="MRh-to-LYI"/>
+                        <outlet property="vQR" destination="wvH-Qq-4zh" id="0T5-QI-UAL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZlX-rq-6KN">
+                    <connections>
+                        <action selector="tapLabelWithGesture:" destination="BYZ-38-t0r" id="fEG-RJ-3o4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3332" y="29"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="WTV-9F-qhb"/>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

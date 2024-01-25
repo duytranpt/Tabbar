@@ -377,3 +377,189 @@ extension UIView {
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
+
+extension UIView {
+    func hideAllSubviews(_ isHidden: Bool) {
+        for subview in self.subviews {
+            if !(subview is UIButton) {
+                subview.isHidden = isHidden
+            }
+        }
+    }
+}
+
+extension UIView {
+    class func fromNib<T: UIView>() -> T? {
+        let bundle = Bundle(for: T.self)
+        let nibName = String(describing: T.self)
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        return nib.instantiate(withOwner: nil, options: nil).first as? T
+    }
+}
+
+extension UIView {
+    func addTicketBorder(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        let ticketPath = UIBezierPath()
+        
+        // Tạo hình dạng ticket
+        ticketPath.move(to: CGPoint(x: bounds.minX, y: bounds.maxY))
+        ticketPath.addLine(to: CGPoint(x: bounds.minX, y: bounds.minY + cornerRadius))
+        ticketPath.addArc(withCenter: CGPoint(x: bounds.minX + cornerRadius, y: bounds.minY + cornerRadius), radius: cornerRadius, startAngle: CGFloat.pi, endAngle: CGFloat.pi * 1.5, clockwise: true)
+        ticketPath.addLine(to: CGPoint(x: bounds.maxX - cornerRadius, y: bounds.minY))
+        ticketPath.addArc(withCenter: CGPoint(x: bounds.maxX - cornerRadius, y: bounds.minY + cornerRadius), radius: cornerRadius, startAngle: CGFloat.pi * 1.5, endAngle: CGFloat.pi * 2, clockwise: true)
+        ticketPath.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
+        ticketPath.close()
+        
+        // Tạo layer cho đường viền
+        let borderLayer = CAShapeLayer()
+        borderLayer.path = ticketPath.cgPath
+        borderLayer.lineWidth = borderWidth
+        borderLayer.strokeColor = borderColor.cgColor
+        borderLayer.fillColor = nil
+        
+        // Thêm layer vào view
+        layer.addSublayer(borderLayer)
+    }
+}
+
+extension UIView {
+    enum viewType {
+        case Vertical
+        case Horizontal
+    }
+    
+    func addSemiCircleMaskToView(yPositions: [CGFloat], radiusSize: CGFloat, type: viewType) {
+        let maskLayer = CAShapeLayer()
+        let maskPath = UIBezierPath(rect: self.bounds)
+        
+       
+        for y in yPositions {
+            switch type {
+            case.Horizontal:
+                let pathTop = UIBezierPath(rect: self.bounds)
+                pathTop.addArc(withCenter: CGPoint(x: y, y: 0), radius: radiusSize, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+                maskPath.append(pathTop)
+
+                let pathBottom = UIBezierPath(rect: self.bounds)
+                pathBottom.addArc(withCenter: CGPoint(x: y, y: self.bounds.size.width), radius: radiusSize, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+                maskPath.append(pathBottom)
+            case .Vertical:
+                let pathRight = UIBezierPath(rect: self.bounds)
+                pathRight.addArc(withCenter: CGPoint(x: 0, y: y), radius: radiusSize, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+                maskPath.append(pathRight)
+
+                let pathLeft = UIBezierPath(rect: self.bounds)
+                pathLeft.addArc(withCenter: CGPoint(x: self.bounds.size.width, y: y), radius: radiusSize, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+                maskPath.append(pathLeft)
+            }
+        }
+        
+        maskLayer.path = maskPath.cgPath
+        maskLayer.fillRule = .evenOdd
+        self.layer.mask = maskLayer
+
+    }
+}
+
+extension UIView {
+    func initView(_ bd: Bundle) -> Any? {
+        let view = bd.loadNibNamed(self.className(), owner: nil, options: nil)?.first
+        return view
+    }
+}
+
+extension UIView {
+    func applyCornerRadius(topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) {
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: bounds.minX + topLeft, y: bounds.minY))
+        path.addLine(to: CGPoint(x: bounds.maxX - topRight, y: bounds.minY))
+        path.addArc(withCenter: CGPoint(x: bounds.maxX - topRight, y: bounds.minY + topRight), radius: topRight, startAngle: CGFloat(-Double.pi / 2), endAngle: 0, clockwise: true)
+        path.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY - bottomRight))
+        path.addArc(withCenter: CGPoint(x: bounds.maxX - bottomRight, y: bounds.maxY - bottomRight), radius: bottomRight, startAngle: 0, endAngle: CGFloat(Double.pi / 2), clockwise: true)
+        path.addLine(to: CGPoint(x: bounds.minX + bottomLeft, y: bounds.maxY))
+        path.addArc(withCenter: CGPoint(x: bounds.minX + bottomLeft, y: bounds.maxY - bottomLeft), radius: bottomLeft, startAngle: CGFloat(Double.pi / 2), endAngle: CGFloat(Double.pi), clockwise: true)
+        path.addLine(to: CGPoint(x: bounds.minX, y: bounds.minY + topLeft))
+        path.addArc(withCenter: CGPoint(x: bounds.minX + topLeft, y: bounds.minY + topLeft), radius: topLeft, startAngle: CGFloat(Double.pi), endAngle: CGFloat(-Double.pi / 2), clockwise: true)
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        layer.mask = maskLayer
+    }
+}
+
+
+extension UIView {
+    
+    func makeDashedBorderLine() {
+        let path = CGMutablePath()
+        let shapeLayer = CAShapeLayer()
+        let lineDashPattern: [NSNumber] = [2, 2]
+        let lineDashWidth: CGFloat = 1.0
+        
+        shapeLayer.lineWidth = lineDashWidth
+        shapeLayer.strokeColor = self.backgroundColor?.cgColor
+        shapeLayer.lineDashPattern = lineDashPattern
+        path.addLines(between: [CGPoint(x: bounds.minX, y: bounds.height/2),
+                                CGPoint(x: bounds.maxX, y: bounds.height/2)])
+        shapeLayer.path = path
+        layer.addSublayer(shapeLayer)
+    }
+}
+
+extension UIView {
+    func addDottedLine(color: UIColor = .gray, dotSize: CGSize = CGSize(width: 4, height: 1), dotSpacing: CGFloat = 2) {
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: bounds.minX, y: bounds.midY))
+        path.addLine(to: CGPoint(x: bounds.maxX, y: bounds.midY))
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.lineWidth = dotSize.height
+        
+        shapeLayer.lineJoin = .round
+        shapeLayer.lineDashPattern = [NSNumber(value: Float(dotSize.width)), NSNumber(value: Float(dotSpacing))]
+        
+        shapeLayer.path = path.cgPath
+        layer.addSublayer(shapeLayer)
+    }
+}
+
+// MARK: Live view NibView
+protocol NibView: NSObjectProtocol {
+    static var nibName: String { get }
+}
+
+extension NibView where Self: UIView {
+    
+    static var nibName: String {
+        return String(describing: Self.self)
+    }
+    
+    /**
+     - Abstract:
+        This method called to `inflateView(from:locatedAt:)` with:
+        * nibName -> `Self.nibName`
+        * bundle -> main bundle
+    */
+    func inflateView() {
+        inflateView(from: Self.nibName, locatedAt: .main)
+    }
+    
+    /**
+     With this method you could specify manually the name of the nibName and the
+     bundle where the view is located
+     - Parameter nibName: nib name to be inflated
+     - Parameter bundle: bundle where nib will be searched
+    */
+    func inflateView(from nibName: String, locatedAt bundle: Bundle) {
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
+            return
+        }
+        
+        backgroundColor = .clear
+        addSubview(view)
+        view.frame = bounds
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+}

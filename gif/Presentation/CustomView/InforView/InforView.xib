@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +34,7 @@
                 <outlet property="mainSTV" destination="Ul3-vJ-Q3K" id="KYU-1i-NqU"/>
                 <outlet property="messLlb" destination="dJb-gE-T2E" id="E89-HF-NAw"/>
                 <outlet property="phoneNumberView" destination="bhC-XL-4sQ" id="RAm-nv-o82"/>
-                <outlet property="privacyPolicyLbl" destination="9vF-5j-gho" id="YoN-Vm-QUY"/>
+                <outlet property="privacyPolicyLbl" destination="9vF-5j-gho" id="f5l-Nt-NGR"/>
                 <outlet property="privacyPolicyView" destination="aGS-Dk-fCe" id="ct3-5A-RY6"/>
                 <outlet property="secondSV" destination="Y9c-Px-D2V" id="1Ks-wA-HGN"/>
                 <outlet property="sperator" destination="hQ3-Gj-zKR" id="qoZ-Et-ZsJ"/>
@@ -444,7 +444,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vF-5j-gho" customClass="DTLabel" customModule="gif" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vF-5j-gho" customClass="VNDTLabel" customModule="gif" customModuleProvider="target">
                                             <rect key="frame" x="43" y="0.0" width="335" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>

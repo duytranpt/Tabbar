@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="inputPhoneNumber" destination="He2-B7-Ej7" id="X0F-Yg-TmS"/>
                 <outlet property="navbarHeight" destination="QRj-fj-hhG" id="BwS-v1-u1H"/>
-                <outlet property="titleLbl" destination="Vej-mS-el1" id="zeH-D3-ySk"/>
+                <outlet property="titleLbl" destination="Vej-mS-el1" id="s9X-k9-ap3"/>
                 <outlet property="validatePhoneNumberLbl" destination="Sok-fR-Rhf" id="Ufc-kA-sgC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,7 +31,7 @@
                         <constraint firstAttribute="height" constant="100" id="QRj-fj-hhG"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vej-mS-el1" customClass="DTLabel" customModule="gif" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vej-mS-el1" customClass="VNDTLabel" customModule="gif" customModuleProvider="target">
                     <rect key="frame" x="15" y="116" width="363" height="20.333333333333343"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -107,7 +107,7 @@
     </objects>
     <designables>
         <designable name="Bee-FE-AFV">
-            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="75" height="38.333333333333336"/>
         </designable>
     </designables>
     <resources>

@@ -24,7 +24,11 @@ class HomeMyProfileViewController: BaseViewController {
         self.setHeader(title: "My Profile", subTitle: "", Type: .ONE_LINE_SIMPLE)
         self.navibarHight.constant = self.navigationBarView!.height
         self.showRightButtonWithImg(img: "icLogout") {
-            print("Logout")
+            UserDefaults.clearProfileModel()
+            self.moveToLogin()
+        }
+        self.setBackAction {
+            self.navigationController?.popToRootViewController(animated: true)
         }
         readPlist()
         self.showWith(data: homeIconArr)
@@ -32,6 +36,17 @@ class HomeMyProfileViewController: BaseViewController {
         
         let profileData: ProfileHomeModel = ProfileHomeModel(displayName: "Duy Tran", phoneNumber: "0964151505", profileID: "915540639351980032")
         profileView.fillData(data: profileData)
+    }
+    
+    func moveToLogin() {
+        if let loginVC = navigationController?.viewControllers.filter({ $0 is LoginMyProfileVC }).first {
+            self.navigationController?.popToViewController(loginVC, animated: true)
+        } else {
+            let loginVC = LoginMyProfileVC()
+            self.navigationController?.viewControllers.insert(loginVC, at: 1)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

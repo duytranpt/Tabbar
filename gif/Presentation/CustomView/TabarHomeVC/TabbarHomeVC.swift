@@ -440,6 +440,7 @@ extension TabbarHomeVC: UICollectionViewDragDelegate {
         parameters.visiblePath = UIBezierPath(roundedRect: poss,
                                               cornerRadius: 24)
         parameters.backgroundColor = .clear
+        cell.backgroundColor = .clear
         return parameters
     }
     

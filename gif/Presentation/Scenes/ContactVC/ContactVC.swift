@@ -8,7 +8,7 @@
 import UIKit
 import Contacts
 
-class ContactVC: BaseViewController {
+class ContactVC: BaseViewController, UIDocumentInteractionControllerDelegate, UIDocumentPickerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countLabel: UILabel!
@@ -17,7 +17,8 @@ class ContactVC: BaseViewController {
     
     var contacts = [FetchedContact]()
     var csvString = "Given Name,Family Name,Group Membership,Phone 1 - Value\n"
-    
+    var documentInteractionController: UIDocumentInteractionController!
+    var urlPath = URL(fileURLWithPath:"")
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,17 +26,27 @@ class ContactVC: BaseViewController {
         self.navigationBarView?.whiteBackgroud()
         self.navbarHeight.constant = self.navigationBarView!.height
         self.showRightButtonWithImg(img: "icLogout") {
-            self.exportContact()
+            let url = URL(fileURLWithPath: "file:/var/mobile/Containers/Data/Application/22CC65A5-A59B-4334-BD86-172A2A73ED25/Documents/CSVContactsData.csv")
+            self.documentInteractionController = UIDocumentInteractionController(url: self.urlPath)
+            self.documentInteractionController.delegate = self
+            // Hiển thị tệp CSV
+            self.documentInteractionController.presentPreview(animated: true)
         }
         
-        fetchContacts()
+//        fetchContacts()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ContactCell", bundle: nil), forCellReuseIdentifier: "Cell")
         countLabel.text = "\(contacts.count) Số liên lạc"
         contacts = self.replacePhoneNumber(data: contacts)
         createCSV()
+        self.exportContact()
+//        self.chooseFile()
     }
+    
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+            return self
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,6 +54,30 @@ class ContactVC: BaseViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
 
+    
+    func chooseFile() {
+           let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.data"], in: .import)
+           documentPicker.delegate = self
+           documentPicker.allowsMultipleSelection = false
+           present(documentPicker, animated: true, completion: nil)
+       }
+
+       // Delegate method - Được gọi khi người dùng đã chọn một tệp
+       func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+           guard let selectedFileURL = urls.first else {
+               return
+           }
+
+           // Xử lý tệp tin được chọn ở đây
+           print("Đường dẫn tệp được chọn: \(selectedFileURL)")
+           urlPath = selectedFileURL
+       }
+
+       // Delegate method - Được gọi khi người dùng đã hủy chọn tệp
+       func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+           dismiss(animated: true, completion: nil)
+       }
+    
     func replacePhoneNumber(data: [FetchedContact]) -> [FetchedContact] {
         var contacts = [FetchedContact]()
         for i in data {
@@ -69,11 +104,41 @@ class ContactVC: BaseViewController {
                 // 2.
                 let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
                 let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+                let saveRequest = CNSaveRequest()
                 do {
+                    
                     // 3.
                     try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
                         self.contacts.append(FetchedContact(firstName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
+                        saveRequest.delete(contact.mutableCopy() as! CNMutableContact)
                     })
+                    try store.execute(saveRequest)
+
+                } catch let error {
+                    print("Failed to enumerate contact", error)
+                }
+            } else {
+                print("access denied")
+            }
+        }
+    }
+    
+    func deletaAllcontact() {
+        let store = CNContactStore()
+        store.requestAccess(for: .contacts) { (granted, error) in
+            if let error = error {
+                print("failed to request access", error)
+                return
+            }
+            if granted {
+                let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
+                let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
+                let saveRequest = CNSaveRequest()
+                do {
+                    try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
+                        saveRequest.delete(contact.mutableCopy() as! CNMutableContact)
+                    })
+                    try store.execute(saveRequest)
                 } catch let error {
                     print("Failed to enumerate contact", error)
                 }
@@ -136,7 +201,9 @@ extension ContactVC {
         do {
             let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: false)
             print("PATH: \(path)")
+            
             let fileURL = path.appendingPathComponent("CSVContactsData.csv")
+            urlPath = fileURL
             try csvString.write(to: fileURL, atomically: true, encoding: .utf8)
             
             
@@ -148,6 +215,35 @@ extension ContactVC {
             print("error creating file")
         }
     }
+    
+//    func deleteAllContacts() {
+//        let contactStore = CNContactStore()
+//        
+//        contactStore.requestAccess(for: .contacts) { (granted, error) in
+//            if granted {
+//                let keys = [CNContactPhoneNumbersKey] as [CNKeyDescriptor]
+//                let containerId = contactStore.defaultContainerIdentifier
+//                
+//                if let predicate = CNContact.predicateForContactsInContainer(withIdentifier: containerId) {
+//                    do {
+//                        let cnContacts = try contactStore.unifiedContacts(matching: predicate, keysToFetch: keys)
+//                        
+//                        let saveRequest = CNSaveRequest()
+//                        
+//                        for contact in cnContacts {
+//                            saveRequest.delete(contact.mutableCopy() as! CNMutableContact)
+//                        }
+//                        
+//                        try contactStore.execute(saveRequest)
+//                        print("Deleted contacts: \(cnContacts.count)")
+//                    } catch {
+//                        print("Error fetching or deleting contacts: \(error)")
+//                    }
+//                } else {
+//                    print("Error creating predicate for contacts in container.")
+//                }
+//            }
+//        }
+//    }
+    
 }
-
-
