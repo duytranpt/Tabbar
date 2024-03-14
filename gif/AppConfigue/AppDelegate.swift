@@ -6,20 +6,23 @@
 //
 
 import UIKit
+import DBDebugToolkit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-   public var title = ""
-
+    public var title = ""
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             if shortcutItem.type == "com.yoursite.yourapp.adduser" {
                 title = "123456789"
                 
             }
         }
+#if DEBUG
+        DBDebugToolkit.setup()
+#endif
         return true
     }
     

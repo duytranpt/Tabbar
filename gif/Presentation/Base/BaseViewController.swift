@@ -122,6 +122,12 @@ extension BaseViewController {
         self.present(vc, animated: false)
         vc.showtitle(title: titleLbl)
     }
+    
+    func alert(_ title: String, message: String) {
+        let vc = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        vc.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension BaseViewController {

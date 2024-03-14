@@ -48,6 +48,8 @@
 		3A62FB0E28B5CBA6000F7FB1 /* HomeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A62FB0D28B5CBA6000F7FB1 /* HomeIcon.swift */; };
 		3A79F79F2974EAF00093F4A9 /* VNAValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A79F79E2974EAF00093F4A9 /* VNAValueView.swift */; };
 		3A7FC4F82B626423003B1E3B /* NewHome.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0D5A2728CF2E5A00C08219 /* NewHome.plist */; };
+		3A7FC5062B626F4F003B1E3B /* ActiveType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7FC5052B626F4F003B1E3B /* ActiveType.swift */; };
+		3A7FC5072B6270A8003B1E3B /* MFFuntions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AD7D5E5294AB2A500FE2AE9 /* MFFuntions.plist */; };
 		3A81EACC296D16E5009CFB86 /* NewTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81EACB296D16E5009CFB86 /* NewTextInputView.swift */; };
 		3A81EACE296D16EC009CFB86 /* NewTextInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A81EACD296D16EC009CFB86 /* NewTextInputView.xib */; };
 		3A81EAD1296D3754009CFB86 /* TPKeyboardAvoidingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81EAD0296D3754009CFB86 /* TPKeyboardAvoidingScrollView.swift */; };
@@ -211,6 +213,7 @@
 		3A62FB0D28B5CBA6000F7FB1 /* HomeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIcon.swift; sourceTree = "<group>"; };
 		3A79F79E2974EAF00093F4A9 /* VNAValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNAValueView.swift; sourceTree = "<group>"; };
 		3A79F7A0297521CA0093F4A9 /* Card.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Card.ttf; sourceTree = "<group>"; };
+		3A7FC5052B626F4F003B1E3B /* ActiveType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveType.swift; sourceTree = "<group>"; };
 		3A81EACB296D16E5009CFB86 /* NewTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTextInputView.swift; sourceTree = "<group>"; };
 		3A81EACD296D16EC009CFB86 /* NewTextInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTextInputView.xib; sourceTree = "<group>"; };
 		3A81EAD0296D3754009CFB86 /* TPKeyboardAvoidingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPKeyboardAvoidingScrollView.swift; sourceTree = "<group>"; };
@@ -473,10 +476,10 @@
 		3A55341B28BC7CC200051F8C /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				3A7FC5042B626F1A003B1E3B /* ActiveLabel */,
 				3AE745622A60EEA2001B1F08 /* TicketView */,
 				3AF10C9C29E6AEDC0023E7F0 /* HeaderAlert */,
 				3A4D8B9A2990A18E00780FD5 /* VNALoading */,
-				3A5E196329769F7200D702D9 /* VNBAlertController */,
 				3AB24D23296800AB00F55DD1 /* VNAChooseSelectionView */,
 				3A877B2A28BDA95F0030CCDB /* InputView */,
 				3AAACDD0296513660094EE18 /* VNDTSelectDateView */,
@@ -586,6 +589,14 @@
 				3A79F79E2974EAF00093F4A9 /* VNAValueView.swift */,
 			);
 			path = VNAValueView;
+			sourceTree = "<group>";
+		};
+		3A7FC5042B626F1A003B1E3B /* ActiveLabel */ = {
+			isa = PBXGroup;
+			children = (
+				3A7FC5052B626F4F003B1E3B /* ActiveType.swift */,
+			);
+			path = ActiveLabel;
 			sourceTree = "<group>";
 		};
 		3A81EACA296D1630009CFB86 /* NewTextInputView */ = {
@@ -958,6 +969,7 @@
 		3AE745622A60EEA2001B1F08 /* TicketView */ = {
 			isa = PBXGroup;
 			children = (
+				3A5E196329769F7200D702D9 /* VNBAlertController */,
 				3AE745632A60EEC5001B1F08 /* TicketView.swift */,
 				3AE745652A60EED2001B1F08 /* TicketView.xib */,
 			);
@@ -1092,6 +1104,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A7FC5072B6270A8003B1E3B /* MFFuntions.plist in Resources */,
 				3A7FC4F82B626423003B1E3B /* NewHome.plist in Resources */,
 				3AF9DB47296C254F00190476 /* PopupAddCardVC.storyboard in Resources */,
 				3A5E196C2976AE3300D702D9 /* Color.xcassets in Resources */,
@@ -1202,6 +1215,7 @@
 				3A8CC76228D1948F005BD468 /* ContactCell.swift in Sources */,
 				3A8CC75B28D18DB3005BD468 /* ContactVC.swift in Sources */,
 				3A541E4C295D46CF00E5EBBE /* DashedLineView.swift in Sources */,
+				3A7FC5062B626F4F003B1E3B /* ActiveType.swift in Sources */,
 				3AAACDCD296483E60094EE18 /* BSVCardView.swift in Sources */,
 				3A3631B128C7272000BADCB7 /* Color+.swift in Sources */,
 				3ABB4A68295B0173000B5899 /* Array+.swift in Sources */,
@@ -1421,6 +1435,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VMBR234FH9;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DEV=1",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = /Users/duytran/Tabbar/gif/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Bật camera";
@@ -1455,6 +1474,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VMBR234FH9;
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"LIVE=1",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = /Users/duytran/Tabbar/gif/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Bật camera";

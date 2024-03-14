@@ -9,4 +9,5 @@ target 'gif' do
 	pod 'lottie-ios'
   pod 'RSKImageCropper'
   pod 'SwiftyJSON'
+  pod "DBDebugToolkit"
 end

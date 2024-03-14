@@ -8,7 +8,7 @@
 import UIKit
 
 class InforView: BaseView {
-
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var dobView: UIView!
     @IBOutlet weak var emailView: DTTextInputView!
@@ -144,7 +144,7 @@ class InforView: BaseView {
         
         addDocumentViewBtn.addAction { [weak self] in
             guard let wSelf = self else { return }
-
+            
             if wSelf.docView1.mainView == nil {
                 wSelf.docView1.mainView = wSelf.mainView
             }
@@ -152,7 +152,7 @@ class InforView: BaseView {
             if wSelf.docView2.mainView == nil {
                 wSelf.docView2.mainView = wSelf.mainView
             }
-
+            
             
             if wSelf.docView1.isHidden && wSelf.docView2.isHidden {
                 wSelf.docView1.isHidden = false
@@ -197,7 +197,7 @@ class InforView: BaseView {
             guard let wSelf = self else { return }
             wSelf.navC?.popViewController(animated: true)
         }
-
+        
         btnConfirmDoc.addAction { [weak self] in
             guard let wSelf = self else { return }
             if (wSelf.setConfirmAction != nil) {
@@ -211,15 +211,11 @@ class InforView: BaseView {
         clearAllContentBtn.addAction { [self] in
             print(getContentHeight())
         }
-        
-        let fullString: NSString = "Bằng việc bấm Cập nhật, Tôi đã đọc và đồng ý với chính sách bảo mật thông tin, quyền riêng tư của Vietnam Airline"
-        let arrColor: [NSString] = ["chính sách bảo mật thông tin, quyền riêng tư"]
-        privacyPolicyLbl.formatText(fullString: fullString, boldPartOfString: arrColor, font: .fontMedium(13), boldFont: .fontBold(13), color: .cgRGB(rgb: "219 163 16"), underLine: true)
-//        privacyPolicyLbl.tapLabel(key: arrColor) { link in
-//            if link == 0 {
-//                print("Mở cái này trong br")
-//            }
-//        }
+                
+        let fullStr = "Bằng việc bấm Cập nhật, Tôi đã đọc và đồng ý với chính sách bảo mật thông tin, quyền riêng tư của Vietnam Airline"
+        self.privacyPolicyLbl.set(fullString: fullStr, part: "chính sách bảo mật thông tin, quyền riêng tư", mainColor: .LightTextColor, partColor: .button_main_color, mainFont: .fontMedium(13), partFont: .fontBold(13), underLine: true) {
+            print("hihih")
+        }
         
         cancelBtn.addAction { [weak self] in
             guard let wSelf = self else { return }
@@ -306,7 +302,7 @@ class InforView: BaseView {
             listDoc2 = docView2.docData()
             listDoc.append(listDoc2)
         }
-
+        
         return ResponseListPax(firstName: titleInforView.firstNameView.vTextField?.text ?? "",
                                firstNameFull: titleInforView.firstNameView.vTextField?.text ?? "",
                                gender: 1,
@@ -319,6 +315,7 @@ class InforView: BaseView {
                                dob: newinput?.vTextField?.text ?? "",
                                listDocument: listDoc)
     }
-
+    
+    
 }
 

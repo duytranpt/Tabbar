@@ -44,7 +44,7 @@
                         <constraint firstAttribute="height" constant="59" id="hRC-Yg-gSn"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRequired" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="Title" value="Đăng nhập bằng số điện thoại"/>
                         <userDefinedRuntimeAttribute type="number" keyPath="TypeBtn">
                             <integer key="value" value="1"/>
@@ -108,6 +108,9 @@
     <designables>
         <designable name="Bee-FE-AFV">
             <size key="intrinsicContentSize" width="75" height="38.333333333333336"/>
+        </designable>
+        <designable name="Vej-mS-el1">
+            <size key="intrinsicContentSize" width="41.333333333333336" height="20.333333333333332"/>
         </designable>
     </designables>
     <resources>

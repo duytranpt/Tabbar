@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VNDTLabel: UILabel {
+class VNDTLabel: ActiveLabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,59 +49,51 @@ class VNDTLabel: UILabel {
 
         return boldString
     }
-    
-//    func tapLabel(key: [NSString], action: @escaping (Int) -> Void) {
-//        self.isUserInteractionEnabled = true
-//        let tapRecognizer = UITapGestureRecognizer { recognizer in
-//            for (index, element) in key.enumerated() {
-//                let text = (self.text)!
-//                let termsRange: NSRange = (text as NSString).range(of: element as String)
-//                if recognizer.didTapAttributedTextInLabel(label: self, inRange: termsRange) {
-//                    action(index)
-//                    break
-//                }
-//            }
-//            
-//        }
-//        self.addGestureRecognizer(tapRecognizer)
-//    }
-    
+        
     func text(str: String) {
         self.text = bo_dau_Tieng_Viet(str)
+    }
+    
+    func set(fullString: String, part: String, mainColor: UIColor, partColor: UIColor, mainFont: UIFont, partFont: UIFont, underLine: Bool,_ callback: (() -> Void)? = nil) {
+        
+        let customType = ActiveType.custom(pattern: String(format: "\\s%@\\b", part))
+        self.enabledTypes.append(customType)
+        self.customize { label in
+            label.text = fullString // "Bằng việc bấm Cập nhật, Tôi đã đọc và đồng ý với chính sách bảo mật thông tin, quyền riêng tư của Vietnam Airline"
+            label.textColor = mainColor
+            label.font = mainFont
+            
+            label.customColor[customType] = partColor
+            label.configureLinkAttribute = { (type, attributes, isSelected) in
+                var atts = attributes
+                
+                switch type {
+                case customType:
+                    atts[NSAttributedString.Key.font] = partFont
+                    if underLine {
+                        atts[NSAttributedString.Key.underlineStyle] = NSUnderlineStyle.single.rawValue
+                    }
+                    break
+                default: ()
+                }
+                
+                return atts
+            }
+            
+            label.handleCustomTap(for: customType) { str in
+                print(str)
+                if let callback = callback {
+                    callback()
+                }
+            }
+                        
+        }
     }
     
 }
 
 extension UIGestureRecognizer {
     
-//    func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
-//        // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
-//        let layoutManager = NSLayoutManager()
-//        let textContainer = NSTextContainer(size: CGSize.zero)
-//        let textStorage = NSTextStorage(attributedString: label.attributedText!)
-//
-//        // Configure layoutManager and textStorage
-//        layoutManager.addTextContainer(textContainer)
-//        textStorage.addLayoutManager(layoutManager)
-//
-//        // Configure textContainer
-//        textContainer.lineFragmentPadding = 0.0
-//        textContainer.lineBreakMode = label.lineBreakMode
-//        textContainer.maximumNumberOfLines = label.numberOfLines
-//        let labelSize = label.bounds.size
-//        textContainer.size = labelSize
-//
-//        // Find the tapped character location and compare it to the specified range
-//        let locationOfTouchInLabel = self.location(in: label)
-//        let textBoundingBox = layoutManager.usedRect(for: textContainer)
-//        let textContainerOffset = CGPoint(x: (labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
-//                                          y: (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
-//        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
-//                                                     y: locationOfTouchInLabel.y - textContainerOffset.y);
-//        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-//
-//        return NSLocationInRange(indexOfCharacter, targetRange)
-//    }
     func rangesOfUnderlinedText(in attributedString: NSAttributedString) -> [NSRange] {
         var ranges: [NSRange] = []
         let range = NSRange(location: 0, length: attributedString.length)

@@ -1,24 +1,28 @@
 PODS:
+  - DBDebugToolkit (0.9.0)
   - lottie-ios (4.1.3)
   - RSKImageCropper (4.0.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - DBDebugToolkit
   - lottie-ios
   - RSKImageCropper
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - DBDebugToolkit
     - lottie-ios
     - RSKImageCropper
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  DBDebugToolkit: 41663a36673c919dfe665003f159ea5621aee0db
   lottie-ios: d0954d3150061f662ed0adf96ef98d7421864c47
   RSKImageCropper: 90dfe482402fb8a40cabd5fea65186d9102cc425
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 9f3be57944d6bb140b367f654a1192abc9fc9a0e
+PODFILE CHECKSUM: 762d9a969a28e3726bf49917be56d03638ef7ff4
 
 COCOAPODS: 1.14.3
