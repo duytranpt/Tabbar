@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 title = "123456789"
                 
             }
-        }
+        }        
 #if DEBUG
-        DBDebugToolkit.setup()
+    DBDebugToolkit.setup()
 #endif
         return true
     }

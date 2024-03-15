@@ -39,17 +39,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "64817414-F5D8-404A-9D8D-FED99251BE8F"
-            shouldBeEnabled = "No"
+            uuid = "C447B750-8405-43D0-8A58-A24BCC6C010A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "gif/AppConfigue/AppDelegate.swift"
+            filePath = "gif/Presentation/Scenes/MainView/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "moveToMyProfile()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C447B750-8405-43D0-8A58-A24BCC6C010A - ea66688ec9b1dd60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gif.ViewController.moveToMyProfile() -&gt; ()"
+                  moduleName = "gif"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duytran/Tabbar/gif/Presentation/Scenes/MainView/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "260"
+                  endingLineNumber = "260"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "C447B750-8405-43D0-8A58-A24BCC6C010A - ea66688ec9b1dd60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gif.ViewController.moveToMyProfile() -&gt; ()"
+                  moduleName = "gif"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duytran/Tabbar/gif/Presentation/Scenes/MainView/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "260"
+                  endingLineNumber = "260"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9984835D-9B66-4080-B2BC-5E2875FD6564"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gif/Presentation/Scenes/MainView/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "moveToMyProfile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9984835D-9B66-4080-B2BC-5E2875FD6564 - ea66688ec9b1ddae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gif.ViewController.moveToMyProfile() -&gt; ()"
+                  moduleName = "gif"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duytran/Tabbar/gif/Presentation/Scenes/MainView/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "9984835D-9B66-4080-B2BC-5E2875FD6564 - ea66688ec9b1dd8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "gif.ViewController.moveToMyProfile() -&gt; ()"
+                  moduleName = "gif"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/duytran/Tabbar/gif/Presentation/Scenes/MainView/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5386721B-AAF6-412E-BB2F-6FF1C024F013"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "gif/Presentation/Scenes/CheckPhoneNumber/CheckPhoneNumber.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "CheckPhoneNumber"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

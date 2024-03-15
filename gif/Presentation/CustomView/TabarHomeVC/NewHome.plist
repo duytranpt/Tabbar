@@ -60,64 +60,64 @@
 			<key>action</key>
 			<integer>3</integer>
 		</dict>
-        <dict>
-            <key>title</key>
-            <string>Get all contact</string>
-            <key>icon</key>
-            <string>icHomeMapWhiteCircle</string>
-            <key>iconHightLight</key>
-            <string>&quot;&quot;</string>
-            <key>iconNotCircle</key>
-            <string>icHomeMapWhite</string>
-            <key>iconHightLightNotCircle</key>
-            <string>&quot;&quot;</string>
-            <key>action</key>
-            <integer>9</integer>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Horizontal ScrollView</string>
-            <key>icon</key>
-            <string>icHomeNotifyWhiteCircle</string>
-            <key>iconHightLight</key>
-            <string>&quot;&quot;</string>
-            <key>iconNotCircle</key>
-            <string>icHomeNotifyWhite</string>
-            <key>iconHightLightNotCircle</key>
-            <string>&quot;&quot;</string>
-            <key>action</key>
-            <integer>10</integer>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Check duplicate phone</string>
-            <key>icon</key>
-            <string>icHomeSettingWhiteCircle</string>
-            <key>iconHightLight</key>
-            <string>&quot;&quot;</string>
-            <key>iconNotCircle</key>
-            <string>icHomeSettingWhite</string>
-            <key>iconHightLightNotCircle</key>
-            <string>&quot;&quot;</string>
-            <key>action</key>
-            <integer>11</integer>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>My profile</string>
-            <key>available</key>
-            <string>VN</string>
-            <key>icon</key>
-            <string>icHomeHotelWhiteCircle</string>
-            <key>iconHightLight</key>
-            <string>icHomeHotelWhiteCircle</string>
-            <key>iconNotCircle</key>
-            <string>icHomeHotelWhiteCircle</string>
-            <key>iconHightLightNotCircle</key>
-            <string>icHomeHotelWhiteCircle</string>
-            <key>action</key>
-            <integer>12</integer>
-        </dict>
+		<dict>
+			<key>title</key>
+			<string>Get all contact</string>
+			<key>icon</key>
+			<string>icHomeMapWhiteCircle</string>
+			<key>iconHightLight</key>
+			<string>&quot;&quot;</string>
+			<key>iconNotCircle</key>
+			<string>icHomeMapWhite</string>
+			<key>iconHightLightNotCircle</key>
+			<string>&quot;&quot;</string>
+			<key>action</key>
+			<integer>9</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Horizontal ScrollView</string>
+			<key>icon</key>
+			<string>icHomeNotifyWhiteCircle</string>
+			<key>iconHightLight</key>
+			<string>&quot;&quot;</string>
+			<key>iconNotCircle</key>
+			<string>icHomeNotifyWhite</string>
+			<key>iconHightLightNotCircle</key>
+			<string>&quot;&quot;</string>
+			<key>action</key>
+			<integer>10</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Settings</string>
+			<key>icon</key>
+			<string>icHomeSettingWhiteCircle</string>
+			<key>iconHightLight</key>
+			<string>&quot;&quot;</string>
+			<key>iconNotCircle</key>
+			<string>icHomeSettingWhite</string>
+			<key>iconHightLightNotCircle</key>
+			<string>&quot;&quot;</string>
+			<key>action</key>
+			<integer>11</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>My profile</string>
+			<key>available</key>
+			<string>VN</string>
+			<key>icon</key>
+			<string>icHomeHotelWhiteCircle</string>
+			<key>iconHightLight</key>
+			<string>icHomeHotelWhiteCircle</string>
+			<key>iconNotCircle</key>
+			<string>icHomeHotelWhiteCircle</string>
+			<key>iconHightLightNotCircle</key>
+			<string>icHomeHotelWhiteCircle</string>
+			<key>action</key>
+			<integer>12</integer>
+		</dict>
 		<dict>
 			<key>title</key>
 			<string>Đặt chỗ của tôi</string>

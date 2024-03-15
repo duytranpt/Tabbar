@@ -207,12 +207,11 @@ extension ViewController {
                 self.movetoHorizontalScrollViewVC()
             case .VNATABBAR_SET_UP:
                 self.smallTabBar()
-                self.moveToPhoneNumberVC()
+//                self.moveToPhoneNumberVC()
+                self.moveToSettingVC()
             case .VNATABBAR_MYPROFILE:
                 self.smallTabBar()
                 self.moveToMyProfile()
-            default:
-                break
             }
         }
         
@@ -283,6 +282,11 @@ extension ViewController {
         let vc = storyBoard.instantiateViewController(withIdentifier: "PhoneNumberVC") as! CheckPhoneNumber
         self.navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    func moveToSettingVC() {
+        let vc = SettingVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func movetoHorizontalScrollViewVC() {

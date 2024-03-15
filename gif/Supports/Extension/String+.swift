@@ -178,3 +178,13 @@ extension String {
         return String(self.suffix(self.count - char))
     }
 }
+
+extension String {
+    func localizeString() -> String {
+        if let path = Bundle.main.path(forResource: App.Lang, ofType: "lproj"),
+            let bundle = Bundle(path: path) {
+            return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        }
+        return self
+    }
+}
